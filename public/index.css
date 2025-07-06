@@ -1,0 +1,87 @@
+:root {
+    --nav-height: 100px;
+    --nav-object-height: calc(var(--nav-height)/2);
+    --nav-color: cadetblue;
+    --nav-focus-color: rgb(152, 230, 233);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 
+    'FILL' 0, 
+    'wght' 800, 
+    'GRAD' 0, 
+    'opsz' 48;
+    color: white;
+}
+
+.top-nav {
+    height: var(--nav-height);
+    width: 100%;
+    background-color: var(--nav-color);
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1;
+    gap: 1px;
+    padding: 0 2%;
+    align-items: center;
+}
+.title {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.logo {
+    height: var(--nav-object-height);
+    width: var(--nav-object-height);
+    background-color: white;
+    border-radius: 100%;
+}
+.name {
+    height: var(--nav-object-height);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    color: gainsboro;
+}
+.search-bar {
+    justify-self: center;
+    width: 70%;
+    height: var(--nav-object-height);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+.search-bar > input {
+    height: inherit;
+    width: calc(100% - var(--nav-object-height));
+    padding: 0 2%;
+    font-size: 1.2rem;
+    outline-color: var(--nav-focus-color);
+}
+.search-bar > button {
+    height: inherit;
+    width: var(--nav-object-height);
+    background-color: var(--nav-focus-color);
+    :hover {
+        cursor: pointer;
+    }
+}
+.more {
+    justify-self: end;
+    width: var(--nav-object-height);
+    height: var(--nav-object-height);
+    background-color: transparent;
+    cursor: pointer;
+}
+.menu-icon {
+    font-size: var(--nav-object-height) !important;
+    font-variation-settings: 'OPSZ' var(--nav-object-height);
+}

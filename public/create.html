@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create new problem</title>
+
+    <!-- external files -->
+    <link rel="stylesheet" href="create.css">
+    <script  defer src="create.js"></script>   
+
+    <!-- mathJax implementation -->
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']], // for inline math
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // for block math
+          }
+        };
+      </script>
+      <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="page-container">
+    <button class="quit-preview-button hidden"></button>
+    <!-- writable and display canvases -->
+    <div class="canvas-container">
+        <textarea spellcheck="false" class="write canvas" autofocus></textarea>
+        <div class="display canvas">
+        </div>
+        
+    </div>
+    <!-- buttons for math symbols -->
+    <div class="buttons">
+      <div class="math-symbols">
+        <div class="algebra">
+          <!-- Basic Operations -->
+          <button class="math-button" id="not-equals">
+            <math><mo>&ne;</mo></math>
+        </button>
+        
+        
+        
+        <button class="math-button" id="multiply">
+            <math><mo>&#215;</mo></math> <!-- multiplication sign -->
+        </button>
+        
+        <button class="math-button" id="divide">
+            <math><mo>&#247;</mo></math> <!-- division sign -->
+        </button>
+        
+        <!-- Plus/Minus -->
+        <button class="math-button" id="plus-minus">
+          <math><mo>&#x00B1;</mo></math>
+        </button>
+        <!-- Scalar Product -->
+        <button class="math-button" id="dot-product">
+            <math>
+            <mrow>
+                <mo>&sdot;</mo> 
+            </mrow>
+            </math>
+        </button>
+        
+        
+        <button class="math-button" id="frac">
+          <math>
+            <mfrac>
+              <mtext>&#9647;</mtext>
+              <mtext>&#9647;</mtext>
+            </mfrac>
+          </math>
+        </button>
+        
+        <button class="math-button" id="intersection">
+          <math><mtext>&cap;</mtext></math>
+        </button>  
+        
+        <button class="math-button" id="union">
+            <math>
+                <mtext>&cup;</mtext>
+            </math>
+          </button>
+          <!-- Percentage -->
+          <button class="math-button" id="percent">
+            <math><mo>%</mo></math>
+          </button>
+        <button class="math-button" id="sqrt">
+          <math>
+            <msqrt></msqrt>
+          </math>
+        </button>
+        
+        <button class="math-button" id="nth-root">
+          <math>
+            <mroot>
+                    <mtext></mtext>
+                    <mtext>&#9647;</mtext>
+                  </mroot>
+                </math>
+              </button>
+        
+        <!-- Exponent -->
+        <button class="math-button" id="square">
+            <math>
+            <msup>
+                <mtext>x</mtext>
+                <mtext>2</mtext>
+            </msup>
+        </math>
+    </button>
+        <button class="math-button" id="power">
+            <math>
+            <msup>
+                <mtext>x</mtext>
+                <mtext>&#9647;</mtext>
+            </msup>
+        </math>
+    </button>
+    
+        <!-- Logarithm base 10 -->
+        <button class="math-button" id="log">
+            <math>
+              <msub>
+                <mtext>log</mtext>
+                <mtext>&#9647;</mtext>
+              </msub>
+            </math>
+        </button>
+        
+        <!-- Natural log -->
+        <button class="math-button" id="ln">
+            <math><mtext>ln</mtext></math>
+        </button>
+        
+        <!-- e^x -->
+        <!-- Absolute value -->
+        <button class="math-button" id="abs">
+          <math>
+            <mo>|</mo><mtext>x</mtext><mo>|</mo>
+          </math>
+        </button>
+        <button class="math-button" id="sub">
+          <math>
+            <msub style="transform: translate(10px, 15px);">
+              <mo style="font-size: 1.05rem;">x</mo>
+              <mo>&#9647;</mo>
+            </msub>
+          </math> 
+         <!-- Degree -->
+         <button class="math-button" id="deg">
+          <math><mtext>deg</mtext></math>
+        </button>
+        
+        </div>
+        <div class="trig">
+           <!-- Trigonometric functions -->
+           <button class="math-button" id="sin">
+            <math><mtext>sin</mtext></math>
+          </button>
+          
+          <button class="math-button" id="cos">
+            <math><mtext>cos</mtext></math>
+          </button>
+          
+          <button class="math-button" id="tan">
+            <math><mtext>tan</mtext></math>
+          </button>
+          <!-- Trigonometric functions -->
+           <button class="math-button" id="csc">
+            <math><mtext>csc</mtext></math>
+          </button>
+          
+          <button class="math-button" id="sec">
+            <math><mtext>sec</mtext></math>
+          </button>
+          
+          <button class="math-button" id="cot">
+            <math><mtext>cot</mtext></math>
+          </button>
+          
+          <!-- Inverse Trigonometric functions -->
+          <button class="math-button" id="asin">
+            <math><msup><mtext>sin</mtext><mo>-1</mo></msup></math>
+          </button>
+          
+          <button class="math-button" id="acos">
+            <math><msup><mtext>cos</mtext><mo>-1</mo></msup></math>
+          </button>
+          
+          <button class="math-button" id="atan">
+            <math><msup><mtext>tan</mtext><mo>-1</mo></msup></math>
+          </button>
+           <!-- Hyperbolic Functions -->
+        <button class="math-button" id="sinh">
+          <math><mtext>sinh</mtext></math>
+        </button>
+        
+        <button class="math-button" id="cosh">
+          <math><mtext>cosh</mtext></math>
+        </button>
+        
+        <button class="math-button" id="tanh">
+          <math><mtext>tanh</mtext></math>
+        </button>
+
+        </div>
+        <div class="letters">
+          <!-- Pi -->
+          <button class="math-button" id="pi">
+            <math><mi>&#x03C0;</mi></math>
+          </button>
+          
+          
+          
+          <!-- Greek Letters -->
+          <button class="math-button letter" id="alpha">
+            <math><mi>&#x03B1;</mi></math> <!-- alpha -->
+          </button>
+          
+          <button class="math-button letter" id="beta">
+            <math><mi>&#x03B2;</mi></math> <!-- beta -->
+          </button>
+          
+          <button class="math-button letter" id="gamma">
+            <math><mi>&#x03B3;</mi></math> <!-- gamma -->
+          </button>
+          
+          <button class="math-button letter" id="delta">
+            <math><mi>&#x03B4;</mi></math> <!-- delta -->
+          </button>
+          
+          <button class="math-button letter" id="theta">
+            <math><mi>&#x03B8;</mi></math> <!-- theta -->
+          </button>
+          <button class="math-button letter" id="mu">
+            <math>
+              <mi>&#956;</mi> <!-- μ -->
+            </math>
+          </button>
+          <!-- Latin Variables -->
+          <button class="math-button letter" id="epsilon">
+            <math><mi>&epsi;</mi></math>
+          </button>
+          
+          <button class="math-button letter" id="Delta">
+            <math><mi>&Delta;</mi></math>
+          </button>
+          <!-- tau constant -->
+          <button class="math-button" id="tau">
+            <math><mi>&tau;</mi></math>
+          </button>
+          <button class="math-button letter" id="lambda">
+            <math><mi>&lambda;</mi></math>
+          </button>
+          <button class="math-button letter" id="rho">
+            <math><mi>&rho;</mi></math>
+          </button>
+          <!-- Sigma (σ): stress, conductivity, summation -->
+          <button class="math-button" id="sigma">
+            <math><mi>&#963;</mi></math>
+          </button>
+
+          <!-- Tau (τ): time constant, torque -->
+          <button class="math-button" id="ell">
+            <math><mi>&ell;</mi></math>
+          </button>
+
+          <!-- Phi (φ): magnetic flux, angle -->
+          <button class="math-button" id="phi">
+            <math><mi>&Phi;</mi></math>
+          </button>
+
+          <!-- Omega (ω): angular frequency -->
+          <button class="math-button" id="omega">
+            <math><mi>&#969;</mi></math>
+          </button>
+          <button class="math-button" id="Gamma">
+            <math><mi>&Gamma;</mi></math>
+          </button>
+          <button class="math-button" id="Omega">
+            <math><mn>&Omega;</mn></math>
+          </button>
+        </div>
+        <div class="calculus">
+          <!-- linear systems -->                
+            <button class="math-button algebra" id="system">
+       <math display="block">
+         <mrow>
+           <mo style="font-size: 0.6rem; transform: translate(-5px, -4px)">{</mo>
+           <mtable>
+             <mtr>
+               <mtd>
+                 <mo style="font-size: 0.6rem; transform: translate(-5px, 16px)">&#9647;</mo>
+               </mtd>
+             </mtr>
+             <mtr>
+               <mtd>
+                   <mo style="font-size: 0.6rem; transform: translate(-5px, -22px)">&#9647;</mo>
+               </mtd>
+             </mtr>
+           </mtable>
+         </mrow>
+       </math>
+     </button>
+           <!-- Summation -->
+           <button class="math-button" id="sum">
+            <math><mo>&#x2211;</mo></math>
+          </button>
+          
+          <!-- Product -->
+          <button class="math-button" id="product">
+            <math><mo>&#x220F;</mo></math>
+          </button>
+          
+          <!-- Limit -->
+          <button class="math-button" id="limit">
+            <math><munder>
+              <mo>lim</mo>
+              <mtext style="font-size: 0.8rem;">x&#8594;&#9647;</mtext>
+            </munder></math>
+          </button>
+            <!-- Derivative -->
+            <button class="math-button" id="derivative">
+              <math><mfrac>
+                <mi>d</mi><mi>dx</mi>
+              </mfrac></math>
+            </button>
+            
+            <!-- Partial Derivative -->
+            <button class="math-button" id="partial-derivative">
+              <math><mfrac>
+                <mo>&#x2202;</mo><mo>&#x2202;x</mo>
+              </mfrac></math>
+            </button>
+            
+            <!-- Integral -->
+            <button class="math-button" id="integral">
+              <math><mo>&#x222B;</mo></math>
+            </button>
+            
+            <!-- Definite Integral -->
+            <button class="math-button" id="definite-integral">
+              <math><msubsup>
+                <mo>&#x222B;</mo>
+                <mi>a</mi>
+                <mi>b</mi>
+              </msubsup></math>
+            </button>
+            
+            <!-- Double Integral -->
+            <button class="math-button" id="double-integral">
+              <math><mo>&#x222C;</mo></math>
+            </button>
+            
+            <!-- Triple Integral -->
+            <button class="math-button" id="triple-integral">
+              <math><mo>&#x222D;</mo></math>
+            </button>
+            
+           
+            
+             <!-- Contour Integral -->
+            <button class="math-button" id="contour-integral">
+              <math><mo>&#x222E;</mo></math> <!-- ∮ -->
+            </button>
+            
+            
+           <!-- Gradient (nabla) -->
+           <button class="math-button" id="nabla">
+            <math><mo>&#x2207;</mo></math> <!-- ∇ -->
+          </button>
+            
+
+            
+           
+        </div>
+        <div class="notation">
+            <!-- Scientific Notation -->
+            <button class="math-button" id="scientific">
+              <math><mtext>&#x00D7;10</mtext><msup><mtext></mtext><mtext>&#9647;</mtext></msup></math>
+            </button>
+            
+          </button>
+                   <!-- Modulo -->
+        <button class="math-button" id="inf">
+          <math><mtext>&infin;</mtext></math>
+        </button>
+           <!-- Vector Notation -->
+           <button class="math-button" id="vector-a">
+            <math><mover>
+              <mi>a</mi>
+              <mo>&#x2192;</mo>
+            </mover></math> <!-- a with vector arrow -->
+          </button>
+          <button class="math-button" id="implies">
+            <math><mo>&#x21D2;</mo></math> <!-- ⇒ -->
+          </button>
+          <!-- Set Membership -->
+          <button class="math-button" id="in">
+            <math><mo>&#x2208;</mo></math> <!-- ∈ -->
+          </button>
+          
+          <button class="math-button" id="not-in">
+            <math><mo>&#x2209;</mo></math> <!-- ∉ -->
+          </button>
+          
+          <button class="math-button" id="subset">
+            <math><mo>&#x2282;</mo></math> <!-- ⊂ -->
+          </button>
+          
+          <button class="math-button" id="superset">
+            <math><mo>&#x2283;</mo></math> <!-- ⊃ -->
+          </button>
+          
+          
+          
+          <button class="math-button" id="exists">
+            <math><mo>&#x2203;</mo></math> <!-- ∃ -->
+          </button>
+           <!-- Measured Angle -->
+          <button class="math-button" id="not-exists">
+            <math><mo>&nexist;</mo></math> 
+          </button>
+          <!-- Logic Symbols -->
+          <button class="math-button" id="forall">
+            <math><mo>&#x2200;</mo></math> <!-- ∀ -->
+          </button>
+          <button class="math-button" id="negation">
+            <math><mo>&#x00AC;</mo></math> <!-- ¬ -->
+          </button>
+          
+          <button class="math-button" id="and">
+            <math><mo>&#x2227;</mo></math> <!-- ∧ -->
+          </button>
+          
+          <button class="math-button" id="or">
+            <math><mo>&#x2228;</mo></math> <!-- ∨ -->
+          </button>
+          
+          
+          
+          <button class="math-button" id="iff">
+            <math><mo>&#x21D4;</mo></math> <!-- ⇔ -->
+          </button>
+          <!-- Angle -->
+        <button class="math-button" id="angle">
+            <math><mo>&#x2220;</mo></math> <!-- ∠ -->
+          </button>
+          
+         
+          
+          <!-- Right Angle -->
+          <button class="math-button" id="right-angle">
+            <math><mo>&#x221F;</mo></math> <!-- ∟ -->
+          </button>
+          
+          <!-- Triangle -->
+          
+          <!-- Perpendicular -->
+          <button class="math-button" id="perpendicular">
+            <math><mo>&#x27C2;</mo></math> <!-- ⟂ -->
+          </button>
+          
+          <!-- Parallel -->
+          <button class="math-button" id="parallel">
+            <math><mo>&#x2225;</mo></math> <!-- ∥ -->
+          </button>
+          
+          <!-- Congruent -->
+          <button class="math-button" id="congruent">
+            <math><mo>&#x2261;</mo></math> <!-- ≡ -->
+          </button>
+          
+          <!-- Similar -->
+          <button class="math-button" id="similar">
+            <math><mo>&#x223C;</mo></math> <!-- ∼ -->
+          </button>
+          
+          <button class="math-button" id="choose">
+            <math>
+              <mfenced open="(" close=")">
+                <mfrac linethickness="0">
+                  <mrow>
+                    <mi>n</mi>
+                  </mrow>
+                  <mrow>
+                    <mi>k</mi>
+                  </mrow>
+                </mfrac>
+              </mfenced>
+            </math>
+          </button>
+          <!-- Line Segment -->
+          <button class="math-button" id="segment-ab">
+            <math>
+              <mover>
+                <mi>AB</mi>
+                <mo>&#xAF;</mo> <!-- Overbar -->
+              </mover>
+            </math>
+          </button>
+          
+          <!-- Ray -->
+          <button class="math-button" id="angle-ab">
+            <math>
+              <mover>
+                <mi>AB</mi>
+                <mo>^</mo> <!-- →
+                -->
+              </mover>
+            </math>
+          </button>
+        </div>
+        <div class="sets">
+          <button class="math-button" id="naturals">
+            <math><mtext>&naturals;</mtext></math>
+          </button>
+          <button class="math-button" id="integers">
+            <math><mtext>&integers;</mtext></math>
+          </button>
+          <button class="math-button" id="rationals">
+            <math><mtext>&rationals;</mtext></math>
+          </button>
+          <button class="math-button" id="real">
+            <math><mtext>&reals;</mtext></math>
+          </button>
+          <button class="math-button" id="complex">
+            <math><mtext>&complexes;</mtext></math>
+          </button>
+          <button class="math-button" id="empty">
+            <math>
+              <mo style="font-family: STIXGeneral, 'Times New Roman', serif; font-size: 1.3rem; transform:translate(-0.3rem, 0px)">&#8709;</mo>
+            </math>
+          </button>
+        </div>
+      </div>
+        
+        <!-- selection for inline and block math -->
+        <div class="action-buttons">
+          <button class="hide-button">&bigtriangledown;</button>
+          <button class="add-math-button default-action-button">+ Math</button>
+          <div class="latex-style-container">
+            <button class="latex-style-button math-inline">$</button>
+            <button class="latex-style-button math-block">$$</button>
+          </div>
+          <button class="newline default-action-button">NewLine</button>  
+          <div class="format-buttons-container">
+            <button class="format-button bold"><b>B</b></button>
+            <button class="format-button italic"><i>I</i></button>
+            <button class="format-button underline"><u>U</u></button>
+          </div>
+          <button class="maximise default-action-button">Preview</button>
+          <button class="default-action-button save-button">Save</button>
+        </div>
+    </div>
+    <div class="minimized-buttons hidden">
+        <button class="min-button show-buttons">&triangle;</button>
+        <button class="min-button min-preview">Preview</button>
+        <button class="min-button min-save">Save</button>
+    </div>
+  </div>
+</body>
+
+</html>

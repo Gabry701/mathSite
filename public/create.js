@@ -195,7 +195,7 @@ function addToTextArea(outsideMath, insideMath = null) {
         const [cursorPos, textBefore, textAfter] = getCanvasValues()
         const isTextInsideMath = isInsideMath(textBefore)
         let textToAdd = isTextInsideMath && insideMath != null? insideMath : outsideMath;
-        if(textToAdd == "newLine"){
+        if (textToAdd == "newLine"){
                 insertNewLine(textBefore, textAfter)
                 return
         }
@@ -206,15 +206,22 @@ function addToTextArea(outsideMath, insideMath = null) {
         cursorElement.value = textBefore + textToAdd + textAfter;
         cursorElement.focus();
         cursorElement.setSelectionRange(newCursorPos, newCursorPos);
+      
 }   
+function calculateHighlightOffset(index) {
+    const value = writableCanvas.value.substring(0, index);
+    let times = (toFind) => (value.match(new RegExp(toFind, "g")) || []).length;
+    let offset = - (times("\n")) - 2*times(" <>") + times("/B/") + times("/I/") + times("/U/")
+    console.log("offse:" + offset)
+    return offset
+}
 
-
-    blockMath.addEventListener("click", () => {
-        blockMath.style.backgroundColor = "var(--azure)";
-        inlineMath.style.backgroundColor = "var(--light-cyan)"
-        currentChar = blockChar;
+blockMath.addEventListener("click", () => {
+    blockMath.style.backgroundColor = "var(--azure)";
+    inlineMath.style.backgroundColor = "var(--light-cyan)"
+    currentChar = blockChar;
 })
-    inlineMath.addEventListener("click", () => {
+inlineMath.addEventListener("click", () => {
         inlineMath.style.backgroundColor = "var(--azure)";
         blockMath.style.backgroundColor = "var(--light-cyan)"
         currentChar = inlineChar;
@@ -257,14 +264,20 @@ AddMathButton.addEventListener("click", () => {
     addToTextArea(`${currentChar}  ${currentChar}`, "")
 })
 let timeout, cleanedValue = '';
-["focus", "input"].forEach(event => {
+["focus", "input", "click"].forEach(event => {
     writableCanvas.addEventListener(event, () => {
+        let caretIndex = writableCanvas.selectionStart;
+        console.log("initial caret: "+ caretIndex)
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             // You can decide whether to remove line breaks here or not
-            cleanedValue = writableCanvas.value.replaceAll("\n", "").replaceAll(" <>", "\u000a").replaceAll("/B/", "<b>").replaceAll("/I/", "<i>").replaceAll("/U/", "<u>").replaceAll("\\B\\", "</b>").replaceAll("\\I\\", "</i>").replaceAll("\\U\\", "</u>");
+            cleanedValue = "PREVIEW\n" + writableCanvas.value.replaceAll("\n", "").replaceAll(" <>", "\u000a").replaceAll("\\B\\", "<b>").replaceAll("\\I\\", "<i>").replaceAll("\\U\\", "<u>").replaceAll("/B/", "</b>").replaceAll("/I/", "</i>").replaceAll("/U/", "</u>");
             // let cleanedValue = writableCanvas.value.replaceAll("\n", "");
+            let offset = calculateHighlightOffset(caretIndex)
+            caretIndex += offset + 8;
             displayCanvas.innerHTML = cleanedValue;
+            console.log("new caret: " + (caretIndex - 8))
+            displayCanvas.innerHTML = displayCanvas.innerHTML.substring(0, caretIndex -1 ) + `<b><span style="color:red">${displayCanvas.innerHTML.substring(caretIndex-1, caretIndex)}</span></b>` + displayCanvas.innerHTML.substring(caretIndex + 1)
             MathJax.typesetPromise([displayCanvas]);
         }, 100);
     });
@@ -274,6 +287,7 @@ writableCanvas.addEventListener("keydown", function (e) {
         addToTextArea(" <>\n", "newLine");
         // addToTextArea("\n")
     }
+            displayCanvas.scrollTop = writableCanvas.scrollTop;
 });
 newLineButton.addEventListener("click", function (e) {
         addToTextArea(" <>\n", "newLine");
@@ -281,7 +295,7 @@ newLineButton.addEventListener("click", function (e) {
 });
 formatButtons.forEach(button => {
     button.addEventListener("click", function (e) {
-        addToTextArea(`/${button.textContent}/  \\${button.textContent}\\`)
+        addToTextArea(`\\${button.textContent}\\  /${button.textContent}/`)
 });
 })
 saveButtons.forEach(button => {

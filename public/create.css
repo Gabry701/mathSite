@@ -81,9 +81,9 @@ button {
 .canvas {
     line-height: 1.7;
     text-align: center;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     font-family: sans-serif;
-    padding: 2%;
+    /* padding: 2%; */
     font-size: 1.31rem;
     border: 2px solid var(--lapis);
     text-wrap: break-word;
@@ -91,6 +91,7 @@ button {
     white-space: pre-line;
     overflow-wrap: break-word;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 .canvas::-webkit-scrollbar {
     width: 5px;

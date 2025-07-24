@@ -1,0 +1,8 @@
+$$ \int\ln^2{(x)}dx $$
+L'integrale dato può essere risolto per parti, si ricorda la formula risolutiva generale che sfrutta questo metodo:
+$\int f'(x)g(x)dx=f(x)\cdot g(x)-\int f(x)\cdot g'(x)$
+In cui $f'(x)$ e $g(x)$ si scelgono arbitrariamente in base a ciò che conviene avere nell'integrale presente nello sviluppo della formula. In questo caso, poiché è presente solo un fattore nell'argomento dell'integrale, lo si può moltiplicare per $1$ che non inficia il risultato e permette di avere $f(x)$ e $g(x)$ come previsto. Si prenda poi $f'(x)=1$ e $g(x) = \ln^2{x}$.
+$\int 1\cdot \ln^2{(x)}dx=x\cdot ln^2{(x)}-\int x\cdot 2\ln{(x)}\cdot\frac{1}{x}dx$
+Si noti che la derivata di $\ln^2{(x)}=2\ln{x}\frac{1}{x}$ perché derivata di una funzione composta (un logaritmo al quadrato, quindi si deriva prima la funzione "più esterna" e si moltiplica per quella "più interna"). Si procede:
+$x\ln^2{(x)}-2\int\ln{(x)}dx$ l'integrale si rifà per parti, moltiplicando il logaritmo di nuovo per 1 e scegliendo $f'(x)=1$ e $g(x)=\ln{(x)}$, si noti come attraverso questo metodo si stia "scalando" l'esponente del logaritmo iniziale per semplificare sempre di più il calcolo.
+$x\ln^2{(x)}-2(x\ln{(x)}-\int x\cdot \frac{1}{x}dx)=x\ln^2{(x)}-2(x\ln{(x)}-x)+c=x(\ln^2{(x)}-2\ln{(x)}+2)+c$

@@ -1,0 +1,4 @@
+$$ \int (x\cdot e^{-x})dx  $$
+L'integrale dato può essere risolto con il metodo "per parti". Si scelga $ g(x)=x $ e $ f'(x)=e^{-x} $, quindi si proceda applicando la formula risolutiva generica dell'integrale per parti che viene qui riportata: $ \int (g(x)\cdot f'(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $.
+$ \int (x\cdot e^{-x})dx=x\cdot (-e^{-x})-\int (1\cdot (-e^{-x}))dx= -xe^{-x}+\int e^{-x}dx= -xe^{-x}-e^{-x}+c= -e^{-x}(x+1)+c $
+L'integrale è quindi risolto, si noti anche che $\int e^{-x}dx=-e^{-x}$ perché $D(-e^{-x})=-e^{-x}\cdot (-1)= e^{-x}$

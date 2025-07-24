@@ -1,0 +1,5 @@
+$$ \int (5x^4\cdot \ln{x})dx $$
+Il seguente integrale può essere risolto con il metodo "per parti". La formula risolutiva generica viene quindi riportata: $ \int (g(x)\cdot f'(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $. Si scelga quindi $f'(x)=5x^4 $ e $g(x)= \ln{x}$, la scelta non è casuale. Si noti che $g(x)$ dovrà essere derivato nella risoluzione dell'integrale, questo agevola i calcoli in quanto la derivata di questo logaritmo è nota: $ D(\ln{(f(x))})=\frac{1}{f(x)}$. Si può quindi procedere:
+$ 5\frac{x^{4+1}}{4+1}\cdot \ln{x}-\int (5\frac{x^{4+1}}{4+1}\cdot \frac{1}{x})dx=5\frac{x^5}{5}\cdot \ln{x}-\int (5\frac{x^5}{5}\cdot \frac{1}{x})dx= x^5\ln{x}-\int x^4dx=x^5\ln{x}-\frac{x^{4+1}}{4+1}+c=x^5\ln{x}-\frac{x^5}{5}+c $
+Volendo si potrebbe anche procedere nella semplificazione della soluzione (di solito nei libri di testo viene proposta quella appena ottenuta):
+$x^5(\ln{x}-\frac{1}{5})+c$

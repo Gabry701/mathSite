@@ -1,0 +1,5 @@
+$$ \int \frac{x}{2\sqrt{x+1}} dx$$
+Il seguente integrale può essere risolto per sostituzione prendendo l'incognita ausiliaria $t=\sqrt{x+1};t^2=x+1;2tdt=dx$, quindi si sostituisca:
+ $\frac{1}{2}\int (\frac{1}{\sqrt{x+1}}\cdot x)dx=\frac{1}{2}\int (t^{-1}\cdot (t^2-1)2t)dt=\frac{1}{2}\int (\frac{2t(t^2-1)}{t})dt=\int (t^2-1)dt=\frac{t^{2+1}}{2+1}-t+c=\frac{t^3}{3}-t+c $
+Si sostituisca a $t$ il valore assegnatoli precedentemente, quindi si completi la risoluzione compiendo un raccoglimento a fattore comune:
+$(x+1)\frac{\sqrt{x+1}}{3}-\sqrt{x+1}+c=\sqrt{x+1}(\frac{x+1}{3}-1)+c$

@@ -1,0 +1,6 @@
+$$ \int (x\cdot 2^x\cdot \ln2)dx $$
+L'integrale può essere risolto "per parti", la formula risolutiva generale propria di questo meotodo è: $ \int (g(x)\cdot f'(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $. Si nota però che in questo metodo sono presenti soli due fattori che si moltiplicano tra loro nell'argomento dell'integrale, è subito chiaro però che $\ln{2}$ lo si può portare fuori dall'integrale in quanto costante, quindi:
+$\ln2\int (x \cdot 2^x)dx$
+Quindi si scelga $f'(x) = 2^x$ e $g(x) = x$. La scelta non è casuale in quanto presa $g(x)=x$, come si nota nella formula risolutiva, $g(x)$ lo si dovrà derivare all'iunterno dell'integrale, questo semplificherà i calcoli. Si proceda:
+$ \ln2 (x\cdot \frac{2^x}{\ln2}-\int (1\cdot \frac{2^x}{\ln2})dx)=\ln2 (\frac{x2^x}{\ln2}-\frac{1}{\ln2}\cdot \frac{2^x}{\ln2})+c= x2^x-\frac{2^x}{\ln2}+c=2^x(x-\frac{1}{\ln2})+c $
+Si noti che $\int (1\cdot \frac{2^x}{\ln2})dx=\int \frac{2^x}{\ln2}dx=\int(\frac{1}{\ln2}\cdot 2^x)dx= \frac{1}{\ln2}\int 2^xdx= \frac{1}{\ln2}\cdot \frac{2^x}{\ln2}+c$.

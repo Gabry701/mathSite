@@ -1,0 +1,13 @@
+$$ \int\frac{sin{x}}{4+cos^2{(x)}}dx $$
+Si risolva "per sostituzione" imponendo la variabile ausiliaria $t=cos{x};dt=-sin{(x)}dx$
+Si sostituisca nell'integrale: $ \int\frac{-dt}{4+t^2}dt=-\int \frac{1}{4+t^2}dt $
+Per risolvere l'integrale ci si può ricondurre all'integrale indefinito noto che restituisce l'arcotangente nella forma:
+ $\int \frac{1}{1+x^2}dx = \arctan{x}+c$ poiché $D( \arctan{f(x)})=\frac{f'(x)}{1+f^2(x)}$
+Quindi sarà necessario raccogliere il $4$ al denomminatore così da avere in esso una funzione al quadrato a cui è ggiunto $1$:
+$-\int\frac{1}{4(1+\frac{t^2}{4})}dt=-\frac{1}{4}\int\frac{1}{1+\frac{t^2}{4}}dt$
+Bisogna avere al denominatore una funzione al quadrato e non una funzione al quadrato fratto qualcosa come in questo caso, quindi è necessario includere il $4$ nel quadrato così che possa essere considerato il termine unico $f^2(t)=(\frac{t}{2})^2$. Si può procedere:
+$-\frac{1}{4}\int\frac{1}{1+(\frac{t}{2})^2}dt$
+Al numeratore deve esserci però la derivata di $f(t)$, ovvero $f(t)=\frac{1}{2}$, questo verrà quindi moltiplicato per l'argomento all'interno dell'integrale (che corrisponde al metterlo al numeratore) così che la forma ricercata sia ottenuta. Poiché si ha moltiplicato per una quantità arbitraria, in quanto non direttamente derivante dal calcolo, si dovrà moltiplicare per il suo reciproco fuori dall'integrale così da bilanciare perché è come se si stesse moltiplicando per $1$ il quale non altera i calcoli:
+$-\frac{1}{4}\int\frac{1}{1+(\frac{t}{2})^2}dt=-\frac{1}{4}\cdot\frac{2}{1}\int\frac{1}{2}\cdot\frac{1}{1+(\frac{t}{2})^2}dt= -\frac{1}{2}\arctan{(\frac{t}{2})}+c $
+Si sosituisca $t$ con il valore che le si è associato all'inzio della risoluzione:
+$-\frac{1}{2}\arctan{(\frac{cos({x})}{2})}+c$

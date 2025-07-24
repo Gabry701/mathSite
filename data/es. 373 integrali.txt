@@ -1,0 +1,6 @@
+$$ \int\frac{x+3}{\sqrt{1-x}}dx $$ Si proceda con il metodo "per sostituzione" imponendo: $ \sqrt{1-x}=t;1-x=t^2;-dx=2t\cdot dt $ 
+Ora si sostiuisca quanto trovato nell'integrale iniziale: $ \int \frac{1-t^2+3}{t}(-2tdt)dt=-2\int(1-t^2+3)dt=-2(t-\frac{t^3}{3}+3t)+c  $
+Si sostituisca $t$: $ -2(\sqrt{1-x}-\frac{({\sqrt{1-x})}^3}{3}+3\sqrt{1-x})+c=-2\sqrt{1-x}+\frac{2}{3}(1-x)\sqrt{1-x}-6\sqrt{1-x}+c=\frac{2}{3}\sqrt{1-x}(-3+1-x-9)+c= 
+$$ \frac{2}{3}\sqrt{1-x}(-11+x)+c $Si noti che nel passaggio finale è stato raccolto il termine $ \frac{2}{3}\sqrt{1-x} $. 
+La radice è comune nella forma in cui è stata raccolta a tutti i termini della somma algebrica. Il termine $ \frac{2}{3}$ non è comune a tutti quindi, 
+poiché è stato raccolto a fattore comune, sarà necessario dividere ogni coefficiente per $ \frac{2}{3}$ così:$ (-2): \frac{2}{3}=-2 \cdot \frac{3}{2}= -3$$ \frac{2}{3}:\frac{2}{3}= 1 $$ -6 : \frac{2}{3} =-6 \cdot \frac{3}{2} = -9  $

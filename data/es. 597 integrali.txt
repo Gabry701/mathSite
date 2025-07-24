@@ -1,0 +1,8 @@
+$$  \int\sin{\sqrt{x}} dx $$
+L'integrale dato può essere risolto per sosituzione associando alla variabile ausiliaria $t$ un valore: $t =\sqrt{x}; t^2=x;2tdt=dx$.
+Risolvere per parti dall'inizio in questo caso è scomodo perché l'argomento del seno è una radice quindi nel processo di integrazione o derivazione del fattore seno si dovrebbe tenere conto anche di essa che allungherebbe di molto i calcoli rendendoli più difficili. È più semplice applicare prima la sostituzione con $t$ per avere l'argomento del seno sotto forma di variabile di primo grado e dopo integrare per parti.
+$ \int \sin{(t)2tdt= 2\int \sin{(t)}tdt} $
+Ora si può proseguire per parti scegliendo $g(x)=t$ e $f'(x)=\sin{(t)}$, così:
+$2(-\cos{(t)}\cdot t-\int -\cos{(x)}\cdot 1dt)=2(-\cos{(t)}\cdot t+\int \cos{(t)}dt)=2(-\cos{(t)}\cdot t+\sin{(t)})+c=-2t\cos{(t)}+2\sin{(t)}+c$
+Si sostituisca ora $t=\sqrt{x}$ nel risultato in funzione di $t$ appena trovato:
+$-2t\cos{\sqrt{x}}+2\sin{\sqrt{x}}+c$

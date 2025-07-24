@@ -1,0 +1,8 @@
+$$ \int \frac{\ln{x}}{x^{3}}dx $$
+Il segeunte intragle può essere risolto usando il metodo "per parti". Si riporta quella generica che verrà subito applicata: $ \int (\frac{f'(x)}{g(x)})dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $. Di solito la si applica quando l'argomento dell'integrale presenta una moltiplicazione tra due funzioni ma ha validità anche in caso di una divisione perché può essere considerata come una moltiplicazione di una frazione per una funzione. Quindi:
+$\int \frac{\ln{x}}{x^{3}}dx=\int (\frac{1}{x^3}\cdot \ln{x})dx= \int (x^{-3}\cdot \ln{x})dx$
+Si scelga $f'(x)=x^{-3}$ e $g(x)=\ln{x}$, si proceda:
+$\frac{x^{-3+1}}{-3+1}\cdot \ln{x}-\int (\frac{x^{-3+1}}{-3+1}\cdot\frac{1}{x})dx=-\frac{1}{2x^2}\ln{x}-\int (-\frac{1}{2x^2}\cdot \frac{1}{x})dx=-\frac{1}{2x^2}\ln{x}+\frac{1}{2}\int x^{-3}dx= -\frac{1}{2x^2}\ln{x}+\frac{1}{2}\frac{x^{-3+1}}{-3+1}+c= -\frac{1}{2x^2}\ln{x}+\frac{1}{2}\cdot \frac{1}{-2x^2}+c= $
+$ = -\frac{1}{2x^2}\ln{x}-\frac{1}{4x^2}+c $
+La soluzione spesso proposta è questa, volendo la si può sviluppare poco di più per averne un'altra, meno frequente, ma comunque equivalente a quella appena ottenuta:
+$-\frac{1}{2x^2}(\ln{x}+\frac{1}{2})+c$

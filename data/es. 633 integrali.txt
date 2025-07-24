@@ -1,0 +1,16 @@
+$$ \int (\tan^3{{(x)}}-\tan^2{{(x)}})dx $$Si lavori sulla forma esplicita della tangente alla terza ($\tan{(x)}= \frac{\sin{(x)}}{\cos{(x)}}$) e sulla tangente in forma esplicita alla seconda:$ \int( (\frac{\sin{(x)}}{\cos{(x)}})^3- \tan^2{{(x)}}) dx= \int\frac{\sin^3{(x)}}{\cos^3{(x)}}dx-\int \tan^2{{(x)}}dx $
+Ora si scriva il numeratore $\sin^3{{(x)}}$ come  $ (1-\cos^2{{(x)}})\cdot \sin{{(x)}}$ sapendo che $\sin^3{{(x)}}=\sin^2{{(x)}}\cdot \sin{{(x)}}$ e sfruttando l'identità pitagorica della goniometria $\sin^2{{(x)}}+\cos^2{{(x)}}=1;\sin^2{{(x)}}=1-\cos^2{{(x)}}$. Quindi si proceda:
+$\int \frac{(1-\cos^2{{(x)}})\cdot \sin{{(x)}}}{\cos^3{(x)}}dx- \int \tan^2{(x)}dx$
+Ora si lavori per sostituzione nel primo integrale, imponendo $ \cos{(x)}=t;-sin{(x)}dx=dt $, invece al secondo integrale si aggiunga $ +1$ e $-1 $ che di fatto equivale ad aggiungere $0 $ (il che non altera il risultato quindi può essere fatto) ma permette di semplificare i calcoli:
+$ \int \frac{(1-t^2)\cdot (- dt)}{t^3}dt -\int (\tan^2{(x)}+1-1)dx=-\int \frac{1-t^2}{t^3}dt-(\int (\tan^2{(x)}+1)dx+\int {-1}dx)$
+Come si può notare si stanno "spaccando" gli integrali al fine di ottenerne altri più semplici da calcolare, si proceda così:
+$ - (\int \frac{1}{t^3}dx+\int \frac{-t^2}{t^3}dx) -\tan{(x)}+x+c$
+Il secondo integrale ($ \int (\tan^2(x)+1)dx $) è uguale a $ \tan(x) $ perché è un integrale noto. Si osservi la derivata prima di $\tan {(x)}$, la quale permette di ottenere l'argomento dell'integrale:
+$ D(tan{(x)})=D(\frac{\sin{(x)}}{\cos{(x)}})=\frac{cos^2{(x)}-\sin{(x)}(-\sin{(x)})}{\cos^2{(x)}}=\frac{\cos^2{(x)}+\sin^2{(x)}}{cos^2{(x)}}= \frac{\cos^2{(x)}}{\cos^2{(x)}}+\frac{\sin^2{(x)}}{\cos^2{(x)}}=1+\tan^2{(x)}$ quindi è stato verificato l'integrale noto. Si può riprendere la risoluzione:
+$ - (\int \frac{1}{t^3}dx+\int \frac{-t^2}{t^3}dx) -\tan{(x)}+x+c= -\int t^{-3}dt+\int \frac{1}{t}dt-\tan{(x)}+x+c=-\frac{t^{-3+1}}{-3+1}+\ln{|t|}-\tan{(x)}+x+c=+\frac{1}{2t^2}+\ln{|t|}-\tan{(x)}+x+c$
+Si sostituisca ora $t$ con il valore assegnatogli precedentemente, ovvero $\cos{(x)}$:
+$ +\frac{1}{2\cos^2{(x)}}+\ln{|\cos{(x)}|}-\tan{(x)}+x+c $
+L'integrale potrebbe terminare qui ma la soluzione può essere sviluppata per ottenre il risultato che viene proposto  spesso nei libri di testo scolastici:
+$\frac{\sin^2{(x)}+\cos^2{(x)}}{2\cos^2{(x)}}+\ln{|\cos{(x)}|}-\tan{(x)}+x+c=\frac{\sin^2{(x)}}{2\cos^2{(x)}}+\frac{\cos^2{(x)}}{2\cos{(x)}}+\ln{|\cos{(x)}|}-\tan{(x)}+x+c=\frac{\tan^2{(x)}}{2}+\frac{1}{2}+\ln{|\cos{(x)}|}-\tan{(x)}+x+c $
+Come ultimo passaggio la costante $\frac{1}{2}$ può essere incluso nel termine $c$, si ottiene così la seguente soluzione:
+$\frac{\tan^2{(x)}}{2}+\ln{|\cos{(x)}|}-\tan{(x)}+x+c $

@@ -1,0 +1,5 @@
+$$ \int \ln{(4x)}dx $$
+Il seguente integrale può essere risolto con il metodo "per parti", si riporta la formula risolutiva generica che verrà subito applicata: $ \int (g(x)\cdot f'(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $. Si noti però che è necessario avere due fattori nell'argomento dell'integrale dato così che si possa scegliere la propria funzione $f'(x)$ e $g(x)$, in questo integrale è presente solo il logaritmo come fattore. È però possibile moltiplicare l'argomento per $1 $ che non altererà il risultato in quanto elemento neutro della moltiplicazione, quindi: $\int (\ln{(4x)}\cdot 1)dx$. Ora si scelga $f'(x)=1$ e $g(x)= \ln{(4x)}$, la scelta non è casuale, il logaritmo se è $g(x)$ dovrà essere derivato il che semplifica i calcoli perché permetterà di avere una frazione con cui è molto più semplice lavorare. Si proceda:
+$ \int (\ln{(4x)}\cdot 1)dx= \ln{(4x)}\cdot x-\int (\frac{1}{4x}\cdot 4 \cdot x)dx=\ln{(4x)}\cdot x-\int 1dx=\ln{(4x)}\cdot x-x+c $
+Solitamente è proposta questa soluzione nei libri di testo, è tuttavia possibile sviluppare ancora poco la soluzione così:
+$ x(\ln{(4x)}-1 )+c $

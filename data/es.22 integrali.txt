@@ -1,0 +1,13 @@
+$ \int x^{3}e^{-x}dx$ 
+Questo integrale può essere risolto per parti. Si ricorda la formula risolutiva generale: 
+$ \int f'(x)\cdot g(x)dx= f(x)g(x)-\int f(x)\cdot g'(x)dx $ 
+In questo caso è comodo scegliere $ x^{3}=g(x) $ perché andando a ripetere la derivazione di esso si potrà "togliere" dall'integrale, mentre $ e^{-x}=f'(x) $ non solo perché l'unica altra scelta di assegnazione ma anche perché si può sfruttare la prevedibile linearità della derivazione e dell'integrazione di $ e $. Si può quindi procedere: 
+$ \int x^{3}e^{-x}dx = x^{3}(-e^{-x})-\int 3x^2\cdot (-e^{-x})dx = -x^{3}e^{-x}+3\int x^2e^{-x}dx $ 
+Dopo aver compiuto la prima integrazione per parti si nota è ancora ripetibile (sempre associando $ x $ a $ g(x) $ e $ e $ ad $ f'(x) $ per le stesse motivazioni prima spiegate) per rendere l'integrale ancora più semplice da risolvere: 
+$-x^{3}e^{-x}+3[ x^2(-e^{-x})-\int 2x\cdot (-e^{-x})dx]=-x^{3}e^{-x}+3[-x^2e^{-x}+2\int x\cdot e^{-x}dx]= $ 
+Per le stesse motivazione prima spiegate, si può ripetere nelle stesse modalità l'integrazione per parti: 
+$ -x^{3}e^{-x}+3 [-x^2e^{-x}+2(x(-e^{-x})-\int 1\cdot (-e^{-x})dx)]$ 
+Come si può notare il fattore $ x $ all'interno dell'integrale non è più presente, ora bastera risolvere gli ultimi calcoli elmentari di moltiplicazione raccoglimento a denominatore comune ($ e^{x} $ che ha esponente positivo e non negativo perché per l'appunto passa al numeratore quindi perde la negatività) per risolvere l'esercizio: 
+$ -x^{3}e^{-x}+3 [-x^2e^{-x}+2(x(-e^{-x})+(-e^{-x})]+c= $ 
+$ =-x^{3}e^{-x}+3 [-x^2e^{-x}-2xe^{-x}-2e^{-x}]+c= $ 
+$ =-x^{3}e^{-x}-3x^2e^{-x}-6xe^{-x}-6e^{-x}+c=-\frac {x^{3}+3x^2+6x+6}{e^{x}}+c $

@@ -85,3 +85,14 @@
     font-size: var(--nav-object-height) !important;
     font-variation-settings: 'OPSZ' var(--nav-object-height);
 }
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.problem-button {
+    height: 200px;
+    width: 300px;
+    overflow: hidden;
+}

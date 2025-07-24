@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>hello</title>
     <link rel="stylesheet" href="page.css">
+    <meta charset="UTF-8" />
     <script defer src="page.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']], // for inline math
+            displayMath: [['$$', '$$'], ['\\[', '\\]']] // for block math
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="canvas"></div>

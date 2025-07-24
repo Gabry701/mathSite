@@ -1,11 +1,22 @@
-const fs = require('fs')
+// const fs = require('fs')
 const canvas = document.querySelector(".canvas")
 const pageName = document.querySelector('title')
-let filename;
-let file = fs.readFile("./files/" + fileName);
+// let filename;
+// let file = fs.readFile("./files/" + fileName);
 
-filename = pageName + '.txt';
-file = fs.readFile("./files/" + fileName)
-
-
-canvas.innerHTML = file;
+window.addEventListener("load", async () => {
+    await fetch("/currentId")
+    .then(res => res.text())
+     .then(currentProblem => {
+        pageName.innerHTML = currentProblem
+    })
+    .then(getDataFromTxt())
+})
+async function getDataFromTxt() {
+    await fetch("/takeFile")
+    .then(res => res.text())
+    .then(data => {
+        canvas.innerHTML = data
+        MathJax.typesetPromise([canvas]);
+    })
+}

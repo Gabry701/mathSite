@@ -1,0 +1,2 @@
+$$ \int \frac{\ln{(x)}}{x}dx $$
+ L'integrale dato è del tipo $ \int \frac{[F(x)]^{\alpha}}{f'(x)}dx=\frac{[F(x)]^{\alpha+1}}{\alpha+1}+c $ ovvero il caso in cui nell'argomento dell'integrale compare una funzione $ F(x) $ e la sua derivata $ f'(x) $. In questo caso si ha: $ \int \frac{\ln{(x)}}{x}dx=\int (\ln{(x)}\cdot \frac{1}{x})dx $ in cui $ F(x)=\ln{(x)} $ mentre $ f'(x)=\frac{1}{x} $. Quindi si può applicare la formula risolutiva proposta all'inizio:$  \int \frac{\ln{(x)}}{x}dx= \frac{(\ln{(x)})^{1+1}}{1+1}+c=\frac{(\ln{(x)})^2}{2}+c $

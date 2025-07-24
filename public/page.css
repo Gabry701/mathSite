@@ -67,9 +67,10 @@ div, button, textarea {
 }
 
 .canvas {
+    margin: 2.5vh;
     line-height: 1.7;
     text-align: justify;
-    max-height: 48vh;
+    height: 95vh;
     overflow-y: scroll;
     /* overflow: hidden; */
     font-family: sans-serif;

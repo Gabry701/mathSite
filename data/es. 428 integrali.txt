@@ -1,0 +1,7 @@
+$$ \int (\arcsin{(x)})dx $$
+Il seguente integrsle può essere risolto attraverso il metodo "per parti" del quale si riporta la generica formula risolutiva contente le generiche funzioni $ f'(x) $ e $ g(x) $: $ \int (g(x)\cdot f'(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $. Come si nota nella formula risolutiva sono presenti due funzioni che si moltiplicano tra loro nell'argomento dell'integrale, in questo caso è presente solo un fattore, si può quindi moltiplicare l'argomento per $1$ in quanto elemente neutro della moltiplicazione. Si scelga $f'(x)=1$ e $g(x)=\arcsin{(x)}$. Si proceda:
+$\int (1\cdot \arcsin{(x)})dx=x\cdot \arcsin{(x)}-\int (x\cdot \frac{1}{\sqrt{1-x^2}})dx=x\arcsin{(x)}-\int (\frac{x}{\sqrt{1-x^2}})dx$
+Si continui ora per sostituzione così da semplificare il calcolo integrale senza la presenza della radice quadrata. Si ponga $t = \sqrt{1-x^2};t^2=1-x^2;2tdt=-2xdx; tdt=-xdx$. Si sosituisca:
+$x\arcsin{(x)}-\int \frac{-tdt}{t}=x\arcsin{(x)}+\int 1\cdot dt= x\arcsin{(x)}+t+c$
+Si sostituisca $t$ con il valore assegnatogli in precedenza così da completare la risoluzione:
+$ x\arcsin{(x)}+\sqrt{1-x^2}+c $

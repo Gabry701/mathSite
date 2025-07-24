@@ -1,0 +1,4 @@
+$$ \int (x\cdot \sin{(2x)})dx $$
+Il seguente integrale può essere risolto con il metodo "per parti" del quale si riporta la generica formula risolutiva contenente le due generiche funzioni $f'(x)$ e $g(x)$: $\int (f'(x)\cdot g(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx$. In questo caso si scelga $f'(x)=\sin{(2x)}$ e $g(x)=x$, la scelta non è casuale, $g(x)=x$ è vantaggioso in fase di calcolo perché dovrà essere derivato dentro l'integrale quindi, essendo un termine di primo grado con coefficiente uguale a 1 darà 1. Risolvere l'integrale sarà quindi più semplice.
+$\int (x\cdot \sin{(2x)})dx=x\cdot \frac{(-\cos{(2x)})}{2}-\int (1\cdot \frac{(-\cos{(2x)})}{2})dx=\frac{-x\cos{(2x)}}{2}+\frac{1}{2}\int \cos{(2x)}dx=-\frac{x\cos{(2x)}}{2}+\frac{1}{2}\cdot \frac{\sin{(2x)}}{2}+c=$ 
+$ -\frac{x}{2}\cos{(2x)}+\frac{1}{4}\sin{(2x)}+c$

@@ -1,0 +1,6 @@
+$$ \int \frac{\ln(x)}{2\sqrt{x}}dx $$
+Il seguente integrale può essere risolto attraverso il metodo "per parti" del quale si riporta la generica formula risolutiva contente le generiche funzioni $ f'(x) $ e $ g(x) $: $ \int (g(x)\cdot f'(x))dx=f(x)\cdot g(x)-\int (f(x)\cdot g'(x))dx $. In questo caso si scelga $g(x)=\ln{(x)}$ (dopo aver portato il $\frac{1}{2}$ fuori dall'argomento dell'integrale in quanto costante) e $f'(x)=\sqrt{x}$. Si proceda:
+$\frac{1}{2}\int \frac{\ln{(x)}}{\sqrt{x}}dx=\frac{1}{2}\int (x^{-\frac{1}{2}}\cdot \ln{(x)})dx= \frac{1}{2}(\frac{x^{-\frac{1}{2}+1}}{-\frac{1}{2}+1}\cdot \ln{(x)}-\int (\frac{x^{-\frac{1}{2}+1}}{-\frac{1}{2}+1}\cdot \frac{1}{x})dx)=\frac{1}{2}(\frac{x^{\frac{1}{2}}}{\frac{1}{2}}\cdot \ln{(x)}-\int (\frac{x^{\frac{1}{2}}}{\frac{1}{2}}\cdot \frac{1}{x})dx)=\frac{1}{2}(2x^{\frac{1}{2}}\ln{(x)}-\int 2x^{\frac{1}{2}-1}dx)=  $
+$= x^{\frac{1}{2}}\ln{(x)}-\int x^{-\frac{1}{2}}dx$
+Si noti che i due $2$ presenti nel passaggio precedente all'ultimo scritto sono già stati semplificati con il fattore comune $\frac{1}{2}$. Si continua:
+$ =x^{\frac{1}{2}}\ln{(x)}-\frac{x^{-\frac{1}{2}+1}}{-\frac{1}{2}+1}+c=\sqrt{(x)}\ln{(x)}-2\sqrt{(x)}+c $

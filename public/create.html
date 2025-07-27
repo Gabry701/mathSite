@@ -24,6 +24,7 @@
 <body>
 
     <div class="page-container">
+        <!-- inivisible button to quit the preview mode by clicking anywhere on the screen -->
         <button class="quit-preview-button hidden"></button>
         <!-- the container for the two canvases -->
         <div class="canvas-container">
@@ -35,6 +36,7 @@
 
         <!-- buttons -->
         <div class="buttons-container">
+            <!-- math symbols divided by category -->
             <div class="math-symbols">
                 <div class="algebra">
                                         <!-- Basic Operations -->
@@ -538,27 +540,39 @@
                 </div>
             </div>
         
-        <!-- buttons for various actions -->
+            <!-- buttons for various actions -->
             <div class="action-buttons">
-            <button class="hide-button">&bigtriangledown;</button>
-            <button class="add-math-button default-action-button">+ Math</button>
-            <div class="latex-style-container">
-                <button class="latex-style-button math-inline">$</button>
-                <button class="latex-style-button math-block">$$</button>
-            </div>
-            <button class="newline default-action-button">NewLine</button>  
-            <div class="format-buttons-container">
-                <button class="format-button bold"><b>B</b></button>
-                <button class="format-button italic"><i>I</i></button>
-                <button class="format-button underline"><u>U</u></button>
-            </div>
-            <button class="maximise default-action-button">Preview</button>
-            <button class="default-action-button save-button">Save</button>
+                <!-- hide the math-symbols and style buttons -->
+                <button class="hide-button">&bigtriangledown;</button>
+                <!-- add latex initializing characters ($,$$) to the canvas -->
+                <button class="add-math-button default-action-button">+ Math</button>
+
+                <div class="latex-style-container">
+                    <!-- switch between inline ($) and block ($$) level math when adding the initializing character -->
+                    <button class="latex-style-button math-inline">$</button>
+                    <button class="latex-style-button math-block">$$</button>
+                </div>
+                <button class="newline default-action-button">NewLine</button>
+
+                <div class="format-buttons-container">
+                    <!-- buttons to make the text bold, italic or underlined by adding chars to the canvas -->
+                    <button class="format-button bold"><b>B</b></button>
+                    <button class="format-button italic"><i>I</i></button>
+                    <button class="format-button underline"><u>U</u></button>
+                </div>
+                <!-- button to toggle the preview of the site (enlarges the display canvas to see how it will look by the user) -->
+                <button class="maximise default-action-button">Preview</button>
+                <!-- save the contents of the display canvas (formatted html) in a .txt file that will be displayed by a wrappable div in the pages html document-->
+                <button class="default-action-button save-button">Save</button>
             </div>
     </div>
+    <!-- buttons that show up in minimized view -->
     <div class="minimized-buttons hidden">
+        <!-- buttons to show all the previous buttons -->
         <button class="min-button show-buttons">&triangle;</button>
+        <!-- same as previews preview button -->
         <button class="min-button min-preview">Preview</button>
+        <!-- same as previous save button -->
         <button class="min-button min-save">Save</button>
     </div>
   </div>

@@ -16,7 +16,9 @@
     --blue: #BFD0E0;
     --quartz: #BFACB5;
     --hide-button: #faa2cb;
+    --hide-button-active: #ffc9e2;
     --save-button: #ff2857;
+    --save-button-active: #3fe972;
 }
 /* body setup */
 body {
@@ -64,13 +66,12 @@ button {
 /* container of the two canvas to write the text and display the preview */
 .canvas-container {
     width: 100%;
-    max-height: 50%;
-    /* max-height: 90%; */
     flex-grow: 1;
     display: grid;
     grid-template-columns: 39% 60%;
     grid-template-rows: 1fr;
     gap: 1%;
+    max-height: 50%;
 }
 
 
@@ -81,9 +82,7 @@ button {
 .canvas {
     line-height: 1.7;
     text-align: center;
-    /* overflow-y: scroll; */
     font-family: sans-serif;
-    /* padding: 2%; */
     font-size: 1.31rem;
     border: 2px solid var(--lapis);
     text-wrap: break-word;
@@ -93,6 +92,7 @@ button {
     overflow-x: hidden;
     overflow-y: scroll;
 }
+/* scrollbar customisation */
 .canvas::-webkit-scrollbar {
     width: 5px;
     height: 10px;
@@ -102,18 +102,18 @@ button {
     border-radius: 4px;
     background-color: #e7e7e7;
 }
-
 .canvas::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: var(--lapis);
+}
+.write {
+    padding-top: 2rem;
 }
 
 /* BUTTONS */
 
 /* container to display the various buttons to insert math symbols and access various functions */
 .buttons-container {
-    /* background-color: blue; */
-    /* width: 100%; */
     height: 50vh;
     border: 2px solid var(--lapis);
     display: grid;
@@ -131,6 +131,7 @@ button {
     gap: 20px;
     grid-template-rows: 1fr;
 }
+
 /* setting up the grids for the buttons */
 .math-symbols > div {
     min-height: 50%;
@@ -138,7 +139,8 @@ button {
     display: grid;
     gap: 10px;
 }
-/* diving the insides of the areas of the buttons based on how many buttons they contain  */
+
+/* dividing the insides of the areas of the buttons based on how many buttons they contain  */
 .algebra, .letters {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -163,9 +165,9 @@ button {
   justify-content: center;
   overflow: hidden;
   font-size: 1rem; 
-  /* line-height: 1; */
   font-weight: 900;
 }
+
 /* make the text larger */
 .math-button > * {
   transform: scale(2); 
@@ -202,6 +204,8 @@ button {
     height: 50px;
     font-size: 40px;
 }
+
+/* container of action buttons in the same row */
 .format-buttons-container, .latex-style-container {
     display: flex;
     gap: 5%;
@@ -220,29 +224,35 @@ button {
     width: 30%;
     font-size: 3rem;
 }
+/* default style accross preview, save and newline buttons */
 .default-action-button {
     font-size: 3rem;
     background-color: var(--light-azure);
 }
 
-.hide-button:active, .show-buttons:active {
-    background-color: #ffc9e2 !important;
-}
-.save-button:active, .min-save:active {
-    background-color: #3fe972 !important;
-}
 .save-button {
     background-color: var(--save-button);
     height: 30%;
 }
+/* change color when clicked */
+.hide-button:active, .show-buttons:active {
+    background-color: var(--hide-button-active) !important;
+}
+.save-button:active, .min-save:active {
+    background-color: var(--save-button-active) !important;
+}
+
 
 /* buttons that show when the buttons container is minimized */
+
+/* container */
 .minimized-buttons {
     height: 10%;
     display: flex;
     justify-content: space-between;
     gap: 1%;
 }
+/* default style for the minimized buttons */
 .min-button {
     width: 10%;
     font-size: 3rem;
@@ -259,7 +269,6 @@ button {
 .min-preview {
     background-color: var(--light-azure);
 }
-
 
 /* quit preview mode */
 .quit-preview-button {
@@ -279,6 +288,7 @@ button {
 }
 
 
+/* support for multiple devices */
 
 @media (width < 1919px) {
     .action-buttons  button {
@@ -317,51 +327,30 @@ button {
     }
 }
 @media (width < 900px) {
-    /* body {
-        height: none;
-    } */
     .buttons-container {
         background-color: var(--blue);
-        /* background-color: red; */
         display: grid;
         grid-template-rows: 6fr 1fr;
         grid-template-columns: 1fr;
     }
-    /* .buttons-container {
-        height: 1000px;
-    } */
     .math-symbols {
-
-        /* height: 1050px; */
         display: grid;
-        /* flex-direction: column; */
-        /* background-color: blue; */
-        /* overflow: hidden; */
         grid-template-rows: 174px 116px 174px 116px 232px 58px;
         grid-template-columns: 1fr;
         gap: 30px;
-    }
-    .algebra {
-        /* height: 1vh; */
-        /* background-color: white; */
     }
     .math-symbols > div {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        /* height: 50px; */
-        /* border: 1px solid blue; */
     }
     .math-button {
-        /* align-self: flex-start; */
         min-width: none;
         flex-basis: 15%;
         height: 50px;
     }
-    /* .action-buttons {
-        align-self: flex-end;
-    } */
 }
+
 @media (width < 600px) {
     .math-button {
         flex-basis: 13%;

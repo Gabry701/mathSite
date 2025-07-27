@@ -4,6 +4,7 @@
     --nav-color: cadetblue;
     --nav-focus-color: rgb(152, 230, 233);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@
     border: 0;
 }
 
+/* google's material symbols implementation */
 .material-symbols-outlined {
     font-variation-settings: 
     'FILL' 0, 
@@ -19,7 +21,9 @@
     'opsz' 48;
     color: white;
 }
+/* HEADER */
 
+/* nav at the top and it's children*/
 .top-nav {
     height: var(--nav-height);
     width: 100%;
@@ -81,16 +85,21 @@
     background-color: transparent;
     cursor: pointer;
 }
+/* more button */
 .menu-icon {
     font-size: var(--nav-object-height) !important;
     font-variation-settings: 'OPSZ' var(--nav-object-height);
 }
+/* MAIN */
+
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
+
+/* style of the buttons added by the server, following the request of index.js */
 .problem-button {
     height: 200px;
     width: 300px;

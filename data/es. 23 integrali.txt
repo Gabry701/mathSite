@@ -1,4 +1,4 @@
-$ \int \frac{\arctan{x}-4}{1+x ^2 }dx $ 
+$$ \int \frac{\arctan{x}-4}{1+x ^2 }dx $$
 Si noti che l'argomento dell'arcotangente è solo $ x $ in quanto non sono presenti delle parentesi che possano quindi far intendere l'inclusione di $ -4 $ nel suddetto. Si può prima di tutto "spaccare" il numeratore mantenendo lo stesso denominatore: 
  $ \int \frac{\arctan{x}}{x ^2+1 }dx -4 \int \frac{1}{x^2+1}dx $ 
  Ora si può procedere con l'integrazione. Si noti che il primo integrale è del tipo: $ \int F(x)f'(x)dx = \frac{F(x) ^{\alpha +1}}{\alpha +1} + c$ 

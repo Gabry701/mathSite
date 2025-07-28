@@ -40,7 +40,7 @@ let isActive = false
 let activatedButtons = []
 // set the cursor element to writable canvas when loading the page
 let cursorElement = writableCanvas;
-
+let cleanedValue = '';
 // latex symbols
 const symbols = {
     "not-equals": "\\neq ",
@@ -138,6 +138,7 @@ const symbols = {
 
 
 /* FUNCTIONS */
+
 
 
 //checks if the text the user is writing is contained inside a latex section ($...$, $$...$$)
@@ -283,6 +284,12 @@ function saveToTxtFile() {
 
 /* EVENT LISTENERS */
 
+// manage view in display-canvas (have no idea why it has to be the first event listener but if it isn't it breaks)
+["focus", "input", "click"].forEach(event => {
+    writableCanvas.addEventListener(event, () => {
+        manageDisplayCanvasView()
+    });
+});
 
 // change between inline and block level latex via the buttons (inline adds "$ $", block adds "$$ $$")
 blockMath.addEventListener("click", () => {
@@ -339,16 +346,6 @@ AddMathButton.addEventListener("click", () => {
     addToTextArea(`${currentChar}  ${currentChar}`, "")
 })
 
-//idk why i have to leave it here but if i bring it upwards it breaks everything so i'll leave it here :/
-let cleanedValue = '';
-
-// manage view in display-canvas
-["focus", "input", "click"].forEach(event => {
-    writableCanvas.addEventListener(event, () => {
-        manageDisplayCanvasView()
-    });
-});
-
 // shorcut to add a newline via "CTRL + ENTER"
 writableCanvas.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && e.getModifierState("Control")) {
@@ -375,4 +372,4 @@ saveButtons.forEach(button => {
 })
 
 //load preview text in display canvas on load
-window.onload(manageDisplayCanvasView())
+window.onload = manageDisplayCanvasView()

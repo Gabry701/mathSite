@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 //get the id of the button clicked in the index.html page, that id is the same as the name of the file
 app.post("/problem", async (req,res) => {
    currentProblem = req.body.id;
+   res.sendStatus(200)
 })
 //send the current problem name to the page.js file
 app.get("/currentId", (req, res) => {

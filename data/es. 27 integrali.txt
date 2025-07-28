@@ -1,4 +1,4 @@
-$ \int \frac {x^2-5x+4}{x^2-6x+9}dx $ 
+$$ \int \frac {x^2-5x+4}{x^2-6x+9}dx $$ 
 Nella risoluzione di questo integrale si può applicare una somma nulla in modo da poter passare da una forma: $ \int \frac{N}{D} = \int \frac{D+M}{D} = \int \frac{D}{D} + \int \frac{M}{D} $ il che è comodo perché il primo integrale si può semplificare per ottenere direttamente $ x+c $ al termine dei calcoli (si consideri M un'arbitraria somma algebrica). In questo caso è vantaggioso sommare e sottrarre al numeratore $ x $ e $ 5 $ che si può fare perché di fatto si sta sommando $ 0 $ il quale non altera i calcoli quindi ammissibile: 
  $ \int \frac{x^2-x+4-3x-5+3x+5}{x^2-6x+9}dx = \int \frac{x^2-6x+9}{x^2-6x+9}dx+\int \frac{x-5}{x^2-6x+9}dx = \int 1dx+\int\frac{x-5}{(x-3)^2}dx$ 
 Il primo integrale è praticamente risolto, il secondo può esser risolto mediante una scomposizione per incognite ausiliaria A e B: 

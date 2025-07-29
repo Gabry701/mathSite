@@ -81,7 +81,7 @@ button {
 /* common style for both the canvases */
 .canvas {
     line-height: 1.7;
-    text-align: center;
+    text-align: left;
     font-family: sans-serif;
     font-size: 1.31rem;
     border: 2px solid var(--lapis);

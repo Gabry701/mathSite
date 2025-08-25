@@ -1,0 +1,13 @@
+$$ \int \frac{x^2-x+3}{3-x}dx $$Soluzione:
+Si compia la divisione tra polinomi come mostrato nell'immagine seguente:
+<span style="display:block; width: 300px; height: auto; background-image:url('./images/es.500_integrali.jpeg'); border: 10px solid white; background-size: 100% 100%; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; "></span>
+Si scriva quindi il polinomio iniziale sostituendo al numeratore il prodotto tra divisore e quoziente aumentato del resto ottenuto:
+$ \int \frac{(-x+3)(-x-2)+9}{3-x}dx=\int \frac{(-x+3)(-x-2)}{3-x}dx+\int \frac{9}{3-x}dx=\int (-2-x)dx+\int \frac{9}{3-x}dx=-2x-\frac{x^2}{2}+9\ln{|3-x|}+c $
+Commento:
+L'integrale in questione può essere semplificato già da principio così che successivamente possa essere "spezzato" in più integrali semplici da risolvere.
+Come primo passaggio si compie la divisione tra polinomi, è un passaggio utile tutte le volte che si ha un integrale il cui argomento è un rapporto tra un polinomio di grado maggiore al numeratore e
+ un polinomio di grado minore al denominatore.
+Dopo aver fatto la divisione si riscriva l'integrale iniziale sostituendo al denominatore il prodotto tra divisore e quoziente aumentato del resto, quindi separare i due termini del numeratore
+ dell'integrale per ottenere così due integrali.
+Il primo integrale ottenuto è molto semplice, si risolve applicando le regole basilari del calcolo integrale. Il secondo integrale, dopo aver portato il $ 9 $ al numeratore fuori argomento, è il caso noto che
+ restituisce come risultato il logaritmo del valore assoluto del denominatore.

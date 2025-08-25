@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 //get the id of the button clicked in the index.html page, that id is the same as the name of the file
 app.post("/problem", async (req,res) => {
    currentProblem = req.body.id;
+   res.sendStatus(200)
 })
 //send the current problem name to the page.js file
 app.get("/currentId", (req, res) => {
@@ -23,18 +24,18 @@ app.get("/currentId", (req, res) => {
 })
 // sends the data from the specific txt file to the page.js file to display it
 app.get("/takeFile", async (req,res) => {
-    const txtPath = path.join(__dirname, "data", `${currentProblem}.txt`)
+    const txtPath = path.join(__dirname, "data", "docs", `${currentProblem}.txt`)
     let data = await fs.readFile(txtPath, "utf-8")
     res.send(data)
 }) 
 
 //generate buttons in the index.html page. Each button has as id the name of the correspondent file
 app.get("/buttons", async (req,res) => {
-    const dataPath = path.join(__dirname, "data");
+    const dataPath = path.join(__dirname, "data", "docs");
     const htmlButtons = []
     const files = await fs.readdir(dataPath);
     for (const file of files) {
-        let filePreview = await fs.readFile(path.join(__dirname, "data", file), "utf-8")
+        let filePreview = await fs.readFile(path.join(dataPath, file), "utf-8")
         //send html to generate the buttons with the name without the .txt extension and set the preview as the equation (that will always be the first part of the file, or the first equation present)
         await htmlButtons.push(`<button class="problem-button" id="${file.substring(0, file.length-4)}">${filePreview.match(/\$\$.*\$\$/)}</button>`)
     }
@@ -44,5 +45,3 @@ app.get("/buttons", async (req,res) => {
 app.listen(port, () => {
     console.log("server running on port " + port);
 })
-
-

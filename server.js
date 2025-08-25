@@ -2,6 +2,8 @@ import express from "express";
 import path, { join } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs/promises";
+import dotenv from "dotenv"
+import pool from "./db.js"
 
 // Change current problem default value in the future
 let currentProblem = "es.22 integrali";
@@ -12,6 +14,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()); // per leggere JSON nel body
 app.use(express.urlencoded({ extended: true }));
+
+dotenv.config()
 
 //get the id of the button clicked in the index.html page, that id is the same as the name of the file
 app.post("/problem", async (req,res) => {

@@ -71,7 +71,7 @@ button {
     grid-template-columns: 39% 60%;
     grid-template-rows: 1fr;
     gap: 1%;
-    max-height: 50%;
+    max-height: 47%;
 }
 
 
@@ -80,6 +80,7 @@ button {
 
 /* common style for both the canvases */
 .canvas {
+    padding: 10px;
     line-height: 1.7;
     text-align: left;
     font-family: sans-serif;
@@ -242,7 +243,18 @@ button {
     background-color: var(--save-button-active) !important;
 }
 
-
+.add-special-container {
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    justify-content: space-between;
+}
+.add-special-container > button {
+    flex-basis: 50%;
+}
+.newline {
+    font-weight: 900;
+}
 /* buttons that show when the buttons container is minimized */
 
 /* container */

@@ -21,6 +21,7 @@ const minSaveButton = document.querySelector(".min-save")
 const bold = document.querySelector(".bold")
 const italic = document.querySelector(".italic")
 const underline = document.querySelector(".underline")
+const addImageButton = document.querySelector(".image-adder")
 
 // arrays for the buttons
 // maxButton and minMaxButton are the Preview buttons in maximised and minimized view
@@ -31,7 +32,7 @@ const saveButtons = [saveButton, minSaveButton]
 const inlineChar = "$"
 const blockChar = "$$"
 // add the "PREVIEW" string before the text inserted by the user to prevent errors that occurred in the scrolling if the user started writing directly in latex
-const previewText = '<span style="display:block; left: 66.6%; background-color: white; justify-text: center; position:fixed; font-weight: 700; z-index:1;">PREVIEW</span>\n'
+const previewText = '<span style="display:block; width: 300px; margin: 0 auto; background-color: white; text-align: center; font-weight: 700; z-index:1;">PREVIEW</span>'
 
 // variables
 // selects if the latex should be inline or block level
@@ -182,6 +183,8 @@ function calculateCursorOffset(text) {
         return text.lastIndexOf(" ")
     else if (text.indexOf(" ", 1) != -1)
         return text.indexOf(" ", text.length-4) + 1
+    else if (text.includes("[["))
+        return text.lastIndexOf("[") + 1
     return text.indexOf("{") + 1
 }
 
@@ -232,32 +235,58 @@ function addToTextArea(outsideMath, insideMath = null) {
     // calculate the final cursor position, replace the textarea value with the one that contains the just added symbol and focus the textarea
     const newCursorPos = cursorPos + calculateCursorOffset(textToAdd)
     cursorElement.value = textBefore + textToAdd + textAfter;
+    console.log(textToAdd)
+    console.log(textAfter)
+    console.log(textBefore)
+    
     cursorElement.focus();
     cursorElement.setSelectionRange(newCursorPos, newCursorPos);
     
 }
-// calculate the offset to add to have a precise highlight of the character that has just been written
-function calculateHighlightOffset(index) {
-    const value = writableCanvas.value.substring(0, index);
-    let times = (toFind) => (value.match(new RegExp(toFind, "g")) || []).length;
-    let offset = - (times("\n")) - 2*times(" <>") + times("/B/") + times("/I/") + times("/U/")
-    return offset
-}
+/* HIGHLIGHT FUNCTION REMOVED BECAUSE IT MESSED WITH THE IMAGES SPANS
+    // calculate the offset to add to have a precise highlight of the character that has just been written
+    function calculateHighlightOffset(index) {
+        const value = writableCanvas.value.substring(0, index);
+        let times = (toFind) => (value.match(new RegExp(toFind, "g")) || []).length;
+        let offset = - (times("\n")) - 2*times(" <>") + times("/B/") + times("/I/") + times("/U/") - (value.match(/\(\[.*?\]\)/g)|| []).length 
+        return offset
+    }
+*/
+
 
 //manage the display mode of the display-canvas
 function manageDisplayCanvasView() {
     setTimeout(() => {
-    let caretIndex = writableCanvas.selectionStart;
+    
         // update the display-canvas every 100ms
             // convert the text written in the writable-canvas language into html code
-            cleanedValue = previewText + writableCanvas.value.replaceAll("\n", "").replaceAll(" <>", "\u000a").replaceAll("\\B\\", "<b>").replaceAll("\\I\\", "<i>").replaceAll("\\U\\", "<u>").replaceAll("/B/", "</b>").replaceAll("/I/", "</i>").replaceAll("/U/", "</u>");
-            // the index at which to highlight the text changes due to the differences between the writable-canvas language and the html code of the cleaned value
-            let offset = calculateHighlightOffset(caretIndex)
-            caretIndex += offset + previewText.length;
+            cleanedValue = previewText + writableCanvas.value.replaceAll("\n", "").replaceAll(" <>", "\u000a").replaceAll("\\B\\", "<b>").replaceAll("\\I\\", "<i>").replaceAll("\\U\\", "<u>").replaceAll("/B/", "</b>").replaceAll("/I/", "</i>").replaceAll("/U/", "</u>")
+            
+            //replace [()] with image tag + customize width, height and align
+            cleanedValue = cleanedValue.replace(/\[\(([^)]+)\)\]/g, (m, innerText) => {
+                const name = innerText.match(/[\w\-]+\.\w+/g)[0]
+                const width = (innerText.match(/(?<=\|)[0-9]*/g) || []).join("")
+                const height = (innerText.match(/(?<=\*)[0-9]*/g)||[]).join("")
+                const align = (innerText.match(/(?<=\:)\w*/g)||[]).join("")
+                let alignCode = "";
+                if (align == "center") 
+                    alignCode = "margin: 0 auto;"
+                else if (align == "right") 
+                    alignCode = "margin-left:auto; margin-right: 0"
+                
+                return `<span style="display:block; width: ${width || 600}px; height:${height || 300}px; background-image:url('./images/${name}'); border: 10px solid white; background-size: 100% 100%; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
+            })
             // add text to display-canvas
             displayCanvas.innerHTML = cleanedValue;
-            // color the current char red
-            displayCanvas.innerHTML = displayCanvas.innerHTML.substring(0, caretIndex -1 ) + `<b><span style="color:red">${displayCanvas.innerHTML.substring(caretIndex-1, caretIndex)}</span></b>` + displayCanvas.innerHTML.substring(caretIndex + 1)
+            
+            /* HIGHLIGHT REMOVED BECAUSE IT MESSED WITH IMAGES SPANS
+                let caretIndex = writableCanvas.selectionStart;
+                // the index at which to highlight the text changes due to the differences between the writable-canvas language and the html code of the cleaned value
+                let offset = calculateHighlightOffset(caretIndex)
+                caretIndex += offset + previewText.length;
+                displayCanvas.innerHTML = displayCanvas.innerHTML.substring(0, caretIndex -1 ) + `<b>${displayCanvas.innerHTML.substring(caretIndex-1, caretIndex)}</b>` + displayCanvas.innerHTML.substring(caretIndex + 1)
+            */
+
             // toggle MathJaxvisualization only in display-canvas to correctly display laTex
             MathJax.typesetPromise([displayCanvas]);
         }, 100)
@@ -369,6 +398,10 @@ saveButtons.forEach(button => {
     button.addEventListener("click", () => {
         saveToTxtFile()
     })
+})
+
+addImageButton.addEventListener("click", () => {
+    addToTextArea("[()]")
 })
 
 //load preview text in display canvas on load

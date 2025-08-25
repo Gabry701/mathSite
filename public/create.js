@@ -274,7 +274,7 @@ function manageDisplayCanvasView() {
                 else if (align == "right") 
                     alignCode = "margin-left:auto; margin-right: 0"
                 
-                return `<span style="display:block; width: ${width || 600}px; height:${height || 300}px; background-image:url('./images/${name}'); border: 10px solid white; background-size: 100% 100%; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
+                return `<span style="display:block; width: ${width || 640}px; height:${height || "auto"}px; background-image:url('./images/${name}'); border: 10px solid white; background-size: 100% 100%; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
             })
             // add text to display-canvas
             displayCanvas.innerHTML = cleanedValue;

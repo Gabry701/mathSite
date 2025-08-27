@@ -292,6 +292,18 @@ function manageDisplayCanvasView() {
         }, 100)
 }
 
+
+function saveAndUploadFiles() {
+    const imagesPaths = cleanedValue.matchAll(/\[\(.*\)\]/g);
+    const imagesCount = imagesPaths.length;
+    imagesPaths.forEach(path => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+    })
+}
+
+
 // save text converted in html code to txt file
 function saveToTxtFile() {
         let fileName = prompt("Inserire il nome del file: ") + ".txt"

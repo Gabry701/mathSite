@@ -22,12 +22,17 @@
       <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-<div class="save-form-container">
-    <form method="post" action="/newProblem" class="save-form"> 
+    <div class="input-images-container">
+        <button class="close-input-images-div">X</button>
+        <h2 class="input-images-title">CLICK ANYWHERE OR DRAG AND DROP YOUR IMAGES</h2>
+        <input class="input-images" type="file">
+    </div>
+    <div class="save-form-container hidden">
+        <form method="post" action="/newProblem" class="save-form"> 
                 <h2 class="save-form-title">SAVE THE SOLUTION</h2>
                 <!-- file name -->
                 <div class="name-container">
-                    <label for="name-input">Insert the exercise name:</label>
+                    <label for="name-input">Exercise name:</label>
                     <input type="text" name="solutionName" id="name-input" placeholder="es.###">      
                 </div>      
                 <!-- subject -->
@@ -45,13 +50,14 @@
                         <input type="radio" id="chemistry" value="chemistry" name="subject">
                     </div>
                 </div>
+                <div class="images-container"></div>
                 <!-- submit -->
                  <div>
                      <button type="submit" class="submit-button">SAVE</button>
                  </div>
             </form>
         </div>
-    <div class="page-container filter">
+    <div class="page-container">
         
         <!-- inivisible button to quit the preview mode by clicking anywhere on the screen -->
         <button class="quit-preview-button hidden"></button>
@@ -596,6 +602,8 @@
                 </div>
                 <!-- button to toggle the preview of the site (enlarges the display canvas to see how it will look by the user) -->
                 <button class="maximise default-action-button">Preview</button>
+                <!-- upload images to be shown in the solution -->
+                 <button class="upload-images-button default-action-button">+ Image</button>
                 <!-- save the contents of the display canvas (formatted html) in a .txt file that will be displayed by a wrappable div in the pages html document-->
                 <button class="default-action-button save-button">Save</button>
             </div>

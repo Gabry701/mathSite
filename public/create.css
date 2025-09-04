@@ -233,6 +233,11 @@ button {
     background-color: var(--light-azure);
 }
 
+.upload-images-button:active::before {
+    content: "";
+    
+}
+
 .save-button {
     background-color: var(--save-button);
     height: 30%;
@@ -301,11 +306,38 @@ button {
     align-items: center;
 }
 
-.save-form-container {
+
+.input-images {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+.close-input-images-div {
+    height: 40px;
+    width: 40px;
+    font-size: 2rem;
+    border-radius: inherit;
+    /* background-color: var(--hide-button); */
+    color: var(--lapis);
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    border: 0;
+}
+
+.input-images-container > h2 {
+    color: var(--lapis);
+    font-weight: 900;
+}
+
+.save-form-container, .input-images-container {
     position: absolute;
     background-color: var(--quartz);
-    width: 70%;
-    height: 70%;
+    width: 80%;
+    height: 80%;
     z-index: 1;
     left: 50%;
     top: 50%;
@@ -317,10 +349,11 @@ button {
     align-items: center;
     justify-content: center;
 }
+
 .save-form {
     border-radius: inherit;
-    width: 70%;
-    height: 70%;
+    width: 90%;
+    height: 90%;
     margin: 10px;
     background-color: pink;
     display: flex;
@@ -330,13 +363,15 @@ button {
 }
 
 .save-form > div {
-    padding: 30px;
+    padding: 30px 0px;
 }
 
 .save-form-title {
     font-size: 2rem;
     font-weight: 900;
 }
+
+
 
 /* .name-container {
     display: flex;
@@ -371,12 +406,30 @@ input[name="subject"] {
     width: 1rem;
 }
 
+.name-container > label {
+    width: fit-content;
+    font-size: 1.4rem;
+}
 
 
 .subject-field {
 
 }
 
+
+.images-container {
+    display: flex;
+    gap: 3%;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.image-input {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
 
 .submit-button {
     height: 100px;

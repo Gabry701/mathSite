@@ -22,6 +22,8 @@ const bold = document.querySelector(".bold")
 const italic = document.querySelector(".italic")
 const underline = document.querySelector(".underline")
 const addImageButton = document.querySelector(".image-adder")
+const imagesInput = document.querySelector(".input-images")
+const imageInputContainer = document.querySelector(".input-images-container")
 
 // arrays for the buttons
 // maxButton and minMaxButton are the Preview buttons in maximised and minimized view
@@ -292,14 +294,20 @@ function manageDisplayCanvasView() {
         }, 100)
 }
 
-
+//save files to database via the form
 function saveAndUploadFiles() {
+    const imagesContainer = document.querySelector(".images-container")
+    //see how many images where inserted by the user
     const imagesPaths = cleanedValue.matchAll(/\[\(.*\)\]/g);
     const imagesCount = imagesPaths.length;
+    //create input elements for each image
     imagesPaths.forEach(path => {
         const input = document.createElement("input");
+        
+        input.classList.add("image-input")
         input.type = "file";
         input.accept = "image/*";
+        imagesContainer.appendChild(input)
     })
 }
 
@@ -408,13 +416,20 @@ formatButtons.forEach(button => {
 // save the text (converted into html code by the )
 saveButtons.forEach(button => {
     button.addEventListener("click", () => {
-        saveToTxtFile()
+        saveAndUploadFiles()
     })
 })
 
 addImageButton.addEventListener("click", () => {
     addToTextArea("[()]")
 })
+
+
+
+imagesInput.addEventListener("hover", () => {
+})
+
+
 
 //load preview text in display canvas on load
 window.onload = manageDisplayCanvasView()

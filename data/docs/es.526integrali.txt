@@ -1,0 +1,10 @@
+$$ \int \frac{1}{9x^2-6x+5}dx $$Soluzione:
+Si ponga il denominatore $ 9x^2-6x+5=(3x-1)^2+4 $. Quindi si proceda:
+$ \int \frac{1}{(3x-1)^2+4}dx=\frac{1}{4}\int \frac{1}{(\frac{3x-1}{2})^2+1}dx=\frac{1}{4}\cdot \frac{2}{3}\int \frac{3}{2}\cdot \frac{1}{(\frac{3x-1}{2})^2+1}dx= \frac{1}{6}\arctan(\frac{3x-1}{2})+c $
+Commento:
+L'integeale dato può esser lavorato per ricondursi al caso noto immediato: $ \int \frac{D(f(x))}{f^2(x)+1}dx=\arctan(f(x))+c $. È quindi necessario che al denominatore sia presente una funzione elevata alla seconda, la cui derivata (fatta prima dell'elevamento a potenza) sia al numeratore,
+ aumentato di $ 1 $.
+Il denominatore è il quadrato di binomio $ (3x-1)^2 $ aumentato di $ 4 $, se lo scrive così sarà facile poi raccogliere il $ 4 $ così da avere quell'$ 1 $ presente nella formula generica. Se si raccogli il $ 4 $ naturalmente bisogna farlo su tutti gli elementi del denominatore quindi anche nel quadrato
+ di binomio nel quale può essere incluso come suo radice ($ 2 $) al denominatore così che svolgendo i calcoli tutto torni. Si porti il $ 4 $ appartenente al denominatore fuori dall'argomento della radice, quindi si faccia la derivata della funzione eevata al quadrato presente al denominatore.
+ Si nota come la derivata sia $ \frac{3}{2} $ che dovrà quindi esser moltiplicato al numeratore perché si possa raggiungere la forma ricercata. Naturalmente questa moltiplicazione non deve alterare i risultati quindi si moltiplica il reciproco di $ \frac{3}{2} $ fuori integrale così che di fatto si abbia
+ moltiplicato per $ 1 $, l'elemento neutro della moltiplicazione. Giunti a questo punto si può applicare la formula risolutiva del caso noto e ottenere così l'arcotangente.  

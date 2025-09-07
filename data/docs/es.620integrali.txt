@@ -1,0 +1,26 @@
+$$ \int \frac{x^2+2}{x^3-1}dx $$Soluzione:
+$ \int (\frac{A}{x-1}+\frac{B}{x^2+2x+1})dx=\int \frac{Ax^2+Ax+A+Bx-B}{(x-1)(x^2+2x+1)}dx $
+Ora si scriva e si risolva il seguente sistema:
+$\begin{cases}  {A=1} \\  {A+B=0;A=-B} \\{A-B=2}\end{cases}$
+$\begin{cases}  {A=1} \\  {B=-1} \\{1-(-1)=2}\end{cases}$
+Si sostituiscano i valori trovati alle relative incognite $ A $ e $ B $ prima introdotte:
+$ \int (\frac{1}{x-1}+\frac{-1}{x^2+2x+1})dx=\int \frac{1}{x-1}dx-\int \frac{1}{x^2+2x+1}dx=\ln|x-1|+c-\int \frac{1}{(x+\frac{1}{2})^2-\frac{1}{4}+1}dx=\ln|x-1|+c-\int \frac{1}{(x+\frac{1}{2})^2+\frac{3}{4}}dx $.
+Si imponga la variabile $ t=x+\frac{1}{2};dt=dx $ e si sostituisca nel secondo integrale:
+$ \ln|x-1|+c-\int \frac{1}{t^2 \cdot \frac{3}{4}}dt=\ln|x-1|+c-\frac{2}{\sqrt{3}}\arctan{(\frac{2}{\sqrt{3}}t)} $.
+Si sostituisca a $ t $ il valore precedentemente assegnatogli:
+$ \ln|x-1|-\frac{2}{\sqrt{3}}\arctan{((x+\frac{1}{2})\cdot \frac{2}{\sqrt{3}})}=\ln|x-1|-\arctan{(\frac{2x+1}{2}\cdot \frac{2}{\sqrt{3}})}+c=\ln|x-1|-\frac{2}{\sqrt{3}}\arctan{(\frac{2x+1}{\sqrt{3}})}+c $
+Commento:
+L'integrale dato può essere risolto dividendo la frazione in due, quindi poi in due integrali, il cui minimo comune multiplo dei denominatori
+ restituisca quello dato, mentre ai numeratori, la somma di $ A $ e $ B $ resituisca quanto presente all'inizio. Il denominatore può esser visto come
+ una differenza di cubi di cui si riporta la generica fomula: $ a³ - b³ = (a - b)(a² + ab + b²) $. Dopo aver quindi sviluppato la somma tra le
+ due frazioni si può scrivere il sistema a tre condizioni: la prima $ A=1 $ deriva dal fatto che il coefficiente del termine al quadrato nel testo dato
+ è $ 1 $; la seconda $ A+B=0 $ è data dall'assenza di un termine di primo grado nel testo; la terza $ A-B=2 $ deriva dal fatto che nel testo
+ iniziale è presente la costante $ 2 $. Dopo aver risolto il sistema e aver trovato i valori da assegnare alle due incognite si può sostituire nel primo
+ passaggio in cui esse sono state introdotte. Si noti come nell'integrale la terza condizione la si usa solo come "verifica" di quanto fatto; è un
+ sistema a tre livelli per due incognite, se la terza condizione restituisce un'identità allora si è calcolato correttamente.
+Il primo integrale, quello ottenuto sostituendo $ A $, è di facile risoluzione in quanto è la forma nota che restituisce il logaritmo naturale. Il
+ secondo integrale lo si piò ricondurre ad una forma molto rara di integrale noto, si riporta qui la formula generica:
+ $ \int \frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan{(\frac{x}{a})}+c $. Si scrive quindi il denominatore così: $ x^2+2x+1=(x+\frac{1}{2})^2-\frac{1}{4}+1=(x+\frac{1}{2})^2+\frac{3}{4} $. Così si ha
+ un termine al quadrato (la parentesi tonda che verrà sostituita con $ t $ e un costante che può esser vista come il quadrato della sua radice.
+ Ecco che quindi si è giunti al caso proposto e si può risolvere, dopo aver fatto ciò si sostituisca a $ t $ il valore assegnatogli precedentemente (la
+ parentesi tonda al denominatore) così da concludere l'esercizio.

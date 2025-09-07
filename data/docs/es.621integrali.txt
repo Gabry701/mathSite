@@ -1,0 +1,9 @@
+$$ \int 2e^{\sqrt{x}}dx $$Soluzione:
+Si imponga la variabile ausiliaria $ t=\sqt{x} ;t^2=x;2tdt=dx $, quindi si sostituisca: $ \int (2te^tdt)=2\int(te^t)dt $. Quindi si scelga
+ $ f'(x) = e^t $ e $ g(x) = t $, si applichi il metodo "per parti", successivamente si sostituisca a $ t $ il valore assegnatogli da principio:
+$ 2(te^t-\int 1\cdot e^tdt)=2(te^t-e^t+c)=2te^t-2e^t+c=2(\sqrt{x}e^{\sqrt{x}}-e^{\sqrt{x}})+c= 2e^{\sqrt{x}}(\sqrt{x}-1)+c $.
+Commento:
+L'integrale dato può essere risolto sfruttando sia il metodo "per sostituzione" sia il metodo "per parti". Prima si imponga la variabile $ t $
+ successivamente si usi il metodo "per parti". L'uso di quest'ultimo metodo è particolarmente semplice ed efficace in questo caso
+ perché applicandolo si dovrà integrare l'esponenziale ottenendo l'integrale stesso. Dopo aver sostituito con $ t $ ed integrato per parti,
+ si sostituisca a $ t $ il valore assegnato, quindi si risolva l'integrale. 

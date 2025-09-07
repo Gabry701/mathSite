@@ -1,0 +1,4 @@
+$$ \int (x\cdot \cos{(x-3)})dx $$Soluzione:
+Si scelga $ f'(x)= \cos{(x-3)} $ mentre $ g(x)=x $, quindi si proceda: $ \sin{(x-3)}x-\int \sin{(x-3)}dx=x\sin{(x-3)}-(-\cos{(x-3)})+c=x\sin{(x-3)}+\cos{(x-3)}+c $.
+Commento:
+L'integrale dato può essere risolto mediante il metodo "per parti", si ricordi che ogni qual volta è richiesto di integrare una funzione seno o coseno spesso è fondamentale applicare questo metodo. Si scelgano quindi $ f'(x) $ e $ g(x) $ come esplicitato nella soluzione, quindi si risolva. Si faccia attenzione ai segni nel momento di integrazione finale, è utile porsi la classica domanda "che funzione se derivata restituisce quella all'interno dell'integrale?", si può così comprendere l'aggiunta del meno subito davanti alla funzione coseno. Si sa infatti che $ D(\cos{f(x)})=-\sin{f(x)} $, poiché però il seno in integrale è positivo allora si aggiunge quel meno (che non è lo stesso previsto dal metodo "per parti"). 

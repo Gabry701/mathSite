@@ -1,0 +1,9 @@
+$$ \int \frac{4}{x^2+6x+11}dx $$Soluzione:
+Si consideri il denominatore nella forma: $ (x+3)^2+2 $. Quindi si proceda: $ \int \frac{4}{(x+3)^+2}dx=\int \frac{4}{2[(\frac{x+3}{\sqrt2})^2+1]}dx=\frac{4}{2}\cdot \sqrt2\int \frac{1}{\sqrt2}\cdot \frac{1}{(\frac{x+3}{\sqrt2})^2+1]}dx=2\sqrt2\arctan{(\frac{x+3}{\sqrt2})}+c $.
+Commento:
+Prima di iniziare con il calcolo, come già accennato nella soluzione, il denominatore può essere scritto come un quadrato di binomio "completato" dall'aumento di $ 2 $. se infatti si svolgono i calcoli si ha che da solo $ (x+3)^2=x^2+6x+9 $, quindi aggiungendo $ 2 $ si ha il
+ denominatore dato nel testo. Questo passaggio non è utile solo per comodità di scrittura, è fondamentale nell'individuazione del metodo risolutivo da usare. Facendo ciò infatti, si ha al denominatore una funzione al quadrato aumentata di una costante ($ (x+3)^2 $ è la funzione, $ 2 $ è
+ la costante), questo suggerisce il caso noto immediato che restituisce l'arcotangente. Si riporta qui la formula generica: $ \int \frac{D(f(x))}{[f(x)]^2+1}dx=\arctan(f(x))+c $.
+Per ricondursi a questo caso sarà quindi necessario avere $ +1 $ al denominatore, quindi si può raccogliere il $ +2 $ a fattore comune includendolo sotto forma di $ \sqrt2 $ nel primo elemento del denominatore perché al quadrato. Successivamente si portano fuori argomento dell'integrale il
+ $ 4 $ del numeratore e il $ 2 $ appena raccolto. Come si nota dalla formula generirca, al numeratore bisogna avere la derivata della funzione al denominatore. Quindi poiché $ D(\frac{x+3}{\sqrt2})=\frac{1}{\sqrt2} $, allora si moltiplica dentro argomento per \frac{1}{\sqrt2} e fuori argomento per il suo reciproco
+ così che di fatto si stia moltiplicando per $ 1 $ che essendo l'elemento neutro della moltiplicazione non altera in alcun modo il risultato. Si è quindi raggiunta la forma desiderata, si semplificano in croce le costanti fuori argomento quindi si può scrivere l'arcotangente.

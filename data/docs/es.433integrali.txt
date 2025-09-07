@@ -1,0 +1,8 @@
+$$ \int \ln^2{(x)}dx $$Soluzione: $ \int (1\cdot \ln^2{(x)})dx=x\ln^2{(x)}-\int (x\cdot 2\ln{(x)}\frac{1}{x})dx=x\ln^2{(x)}-\int 2\ln{(x)}dx=x\ln^2{(2)}-2\int (1\cdot \ln{(x)})dx= $ $ =x\ln^2{(2)}-2[x\ln{(x)}-\int (x\cdot \frac{1}{x})dx]=x\ln^2{(2)}-2[x\ln{(x)}-x]+c=x\ln^2{(x)}-2x\ln{(x)}+2+c $
+ Commento: L'integrale dato può essere risolto mediante il metodo "per parti", si ricordi che spesso, quando nell'argomento dell'integrale è presente il logaritmo
+ naturale, si usa questo metodo risolutivo. Si riporta la generica formula risolutiva applicata in questa soluzione: $ \int(f'(x)\cdot g(x))dx=g(x)f(x)-\int (g'(x)\cdot f(x))dx $
+In questo questo caso, all'inizio era presente un solo fattore quindi non c'era la possibilità di decidere chi fosse f'(x) e chi g(x), tuttavia è possibile moltiplicare all'interno
+ dell'argomento per $ 1 $ poiché essendo l'elemento neutro della moltplicazione, non altererà il risultato. Quindi si scelga $ g(x)=1 $ mentre $ f'(x)=\ln^2{(x)} $. La scelta non
+ casuale, prendere $ f^(x)=\ln^2{(x)} $ è vantaggioso perché attraverso la derivazione che si compirà (come scritto nella formula) all'interno dell'integrale si otterrà un
+ argomento più semplice da integrare. Il metodo "per parti" può essere applicato anche più volte consecutivamente come in questo caso: è stato applicato due volte
+ introducendo sempre il fattore $ 1 $ nell'argomento.

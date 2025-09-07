@@ -1,0 +1,4 @@
+$$ \int \frac{\arctan{(x)}+3}{1+x^2}dx $$Risoluzione:
+$ \int (\frac{1}{1+x^2}\cdot \arctan{(x)})dx+3\int \frac{1}{1+x^2}dx=\frac{\arctan^{1+1}{(x)}}{1+1}+3\arctan{(x)}+c=\frac{\arctan^2{(x)}}{2}+3\arctan{(x)}+c $.
+Commento:
+L'integrale può essere risolto "rompendo" il numeratore a denominatore comune così da poter lavorare su due frazioni, quindi due integrali, distinte, quindi svlogere dei calcoli più semplici. È quindi utile analizzare i due integrali uno per volta: il primo integrale è del tipo $ \int ([F(x)]^\alpha\cdot f'(x))dx=\frac{[F(x)]^{\alpha+1}}{\alpha+1}+c $, in questo caso si ha $ F(x)=\arctan{(x)} $ e $ f'(x)=\frac{1}{1+x^2} $, applicando la formula si giunge quindi alla soluzione sopra scritta; il secondo integrale è un integrale noto che restituisce direttamente $ \arctan{(x)} $ in quanto si noti che la derivata di ciò restituisce proprio l'argomento dell'integrale che si sta studiando (il secondo): $ D(\arctan{(x)})=\frac{1}{1+x^2} $. 

@@ -1,0 +1,10 @@
+$$ \int \frac{8\cos{(x)}+\sin^3{(x)}}{\sin^5{(x)}}dx $$Soluzione:
+$ 8\int \frac{\cos{(x)}}{\sin^5{(x)}}dx+\int \frac{\sin^3{(x)}}{\sin^5{(x)}}dx=8\frac{\sin^{-5+1}{(x)}}{-5+1}+\int \frac{1}{\sin^2{(x)}}dx+c=\frac{-2}{\sin^{-4}{(x)}}+c=\frac{-2}{\sin^{-4}{(x)}}-\int \frac{-1}{\sin^2{(x)}}dx+c=-2\csc^4{(x)}-\cot{(x)}+c $
+Commento:
+L'integrale può essere risolto "spezzando" il numeratore a denominatore comune in due frazioni, quindi in due integrali, distinti così che sia più semplice il calcolo. Il primo integrale ($ 8\int \frac{\cos{(x)}}{\sin^5{(x)}}dx $) è un caso noto la cui risoluzione è immediata. È il caso in cui si ha:
+ $ \int ([F(x)]^\alpha \cdot f'(x))dx=\frac{[F(x)]^{\alpha+1}}{\alpha+1}+c $. In questo caso si ha che $ F(x)=\sin{(x)} $ e $ f'(x)=\cos{(x)} $. Il primo integrale quindi viene risolto applicando questa formula, si può passare alla trattazione del secondo.
+Nel secondo prima di tutto si semplificano gli esponenti al numeratore e denominatore in quanto rapporto di potenze con la stessa base ed esponenti diversi. Successivamente si lavora sul segno $ + $ esterno all'integrale per avere due $ - $ così che ci si possa ricondurre al raro caso
+ noto: $ \int\frac{-1}{\sin^2{(x)}}dx=-cot{(x)}+c  $. Dimostrazione di quanto appena detto:
+$ \int\frac{-1}{\sin^2{(x)}}dx=\int \frac{-(\cos^2{(x)}+\sin^2{(x)})}{\sin^2{(x)}}dx=-\int \frac{\cos^2{(x)}}{\sin^2{(x)}}dx-\int \frac{\sin^2{(x)}}{\sin^2{(x)}}dx=-\int \cot^2{(x)}dx-\int 1dx $. Si ricordi però che: $ \cot^2{(x)}=\csc^2{(x)}-1=\frac{1}{\sin^2{(x)}}-1=\frac{1-\sin^2{(x)}}{\sin^2{(x)}}=\frac{(\cos^2{(x)}+\sin^2{(x)})-\sin^2{(x)}}{\sin^2{(x)}}=\frac{cos^2{(x)}}{\sin^2{(x)}} $. Quindi riprendendo il lavoro sugli integrali si ha che:
+ $ -\int \cot^2{(x)}dx-\int 1dx=-\int (\csc^2{(x)}-1)dx-\int 1dx=-\int \csc^2{(x)}dx-\int -1dx-\int 1dx=-\int \csc^2{(x)}dx+\int 1dx-\int 1dx=-\int \csc^2{(x)}=-\int\frac{1}{\sin^2{(x)}}dx=\int \frac{-1}{\sin^2{(x)}}dx $. Ecco che quindi si è dimostrato perché ci sia il passaggio da $ \int \frac{-1}{\sin^2{(x)}}dx $ a $ -\cot{(x)} $
+ tra il penultimo e ultimo passaggio per quanto riguarda il secondo integrale.

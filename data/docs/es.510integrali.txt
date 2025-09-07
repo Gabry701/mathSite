@@ -1,0 +1,26 @@
+$$ \int \frac{x^4+x^3+6}{x^2+x}dx $$ Soluzione:
+ $ \int \frac{x^4}{x^2+x}dx+\int \frac{x^3}{x^2+x}dx+\int \frac{6}{x^2+x}dx=\int \frac{x^4}{x(x+1)}dx+\int \frac{x^3}{x(x+1)}dx+\int \frac{6}{x(x+1)}dx=\int \frac{x^3}{x+1}dx+\int \frac{x^2}{x+1}dx+\int \frac{6}{x(x+1)}dx $
+ Si compia la divisione tra numeratore e denominatore delle prime due frazioni e si sfruttino le incognite ausiliarie $ A $ e $ B $ per risolvere il terzo integrale come di seguito mostrato:
+ [()]
+ $ \int \frac{6}{x(x+1)}dx=\int (\frac{A}{x}+\frac{B}{x+1})dx=\int \frac{Ax+A+Bx}{x(x+1)}dx $
+ $\begin{cases} {A+B=0;A=-B} \\ {A=6} \end{cases}$
+ $\begin{cases} {B=-6} \\ {A=6} \end{cases}$ $ \int (\frac{A}{x}+\frac{B}{x+1})dx=\int \frac{6}{x}dx-\int \frac{6}{x+1} $
+ Quindi si uniscano i tre diversi sviluppi dei tre integrali e si proceda sostituendo il numeratore dei primi due con quanto ottenuto svolgendo le divisioni:
+ $ \int \frac{(x+1)(x^2-x+1)-1}{x+1}dx+\int \frac{(x+1)(x-1)+1}{x+1}dx+\int \frac{6}{x}dx-\int \frac{6}{x+1}=\int \frac{(x+1)(x^2-x+1)}{x+1}dx-\int \frac{1}{x+1}dx+\int \frac{(x+1)(x-1)}{x+1}dx+\int \frac{1}{x+1}dx+6\ln{|x|}-6\ln{|x+1|}+c=$
+ $ \int (x^2-x+1)dx+\int (x-1)dx+6\ln{|x|}-6\ln{|x+1|}+c=\frac{x^3}{3}-\frac{x^2}{2}+x+\frac{x^2}{2}-x+6\ln{|x|}-6\ln{|x+1|}+c=\frac{x^3}{3}+6\ln{|x|}-6\ln{|x+1|}+c=\frac{x^3}{3}+6\ln{|\frac{x}{x+1}|}+c $
+
+ Commento:
+L'integrale dato presenta un argomento piuttosto difficile da trattare senza alcun tipo di semplificazione. In questi casi è utile sfruttare gli addendi che compongono la somma al numeratore per
+ "spezzare" la frazione, quindi ottenere più integrali più semplici da calcolare. Dopo aver fatt ciò è possibile compiere un raccoglimento a fattore comune ($ x $) al denominatore così da poter poi
+ compiere delle semplificazioni e abbassare i gradi delle diverse frazioni.
+
+ Poiché le prime due frazioni presentano al numeratore un polinomio di grado maggiore di quello presente al denominatore, è possibile e assolutamente utile compiere la divisione tra polinomi.
+ Per quanto riguarda il terzo integrale non si può compiere la divisione perché al numeratore non è presente alcun polinomio di grado superiore a quello presente al denominatore. Tuttavia si può
+ lavorare con le incognite ausiliarie $ A $ e $ B $.
+
+ Dopo aver svolto questi calcoli si può unire quanto trovato per proseguire nel calcolo dell'integrale dato: si sostituiscano i numeratori degli argomenti dei primi due integrali con quanto trovato
+ svolgendo le divisioni, al terzo integrale (ora due integrali) si sostituiscano i valori delle incognite trovati. Quindi si semplifichi ciò che può esser semplificato.
+
+ Dopo aver fatto ciò si può concludere la risoluzione applicando le regole base del calcolo integrale legato ai casi noti in questo caso presenti. Si noti che in questo caso  è stata applicata anche la
+ formula delle differenza tra logaritmi con la stessa base. È un passaggio non fondamentale, è arbitrario, e in realtà la soluzione potrebbe essere ulteriormente sviluppata ma sono stati svolti i calcoli
+ utili a fornire la soluzione solitamente presente nei libri di testo.

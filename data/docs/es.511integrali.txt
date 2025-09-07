@@ -1,0 +1,22 @@
+$$ \int \frac{1-x}{2x^2+5x+2}dx $$ <b><u>Soluzione:</u></b>
+ Si scomponga il denominatore in una forma più semplice da sfruttare per risolvere il calcolo dell’integrale:
+ <span style="display:block; width: 1280px; height:360px; background-image:url('./images/es.511integrali.jpeg'); border: 10px solid white; background-size: contain; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; "></span>
+ Quindi si sostituisca con quanto trovato:
+ $ \int \frac{1-x}{(x+2)(2x+1)}dx= \int \frac{A}{x+2}dx+\int \frac{B}{2x+1}dx=\int \frac{2Ax+A+Bx+B}{(x+2)(2x+1)}dx $
+ Ora si scriva il sistema utile a trovare il valore delle incognite ausiliarie $ A $ e $ B $ con le condizioni ricavabili:
+ $ \begin{cases}  {2A+B=-1;B=-1-2A}\\ {A+2B=1} \end{cases} $
+ $ \begin{cases}  {B=-1-2A}\\ {A+2(-1-2A)=1;A-2-4A=1;-3A=3;A=-1} \end{cases} $
+ $ \begin{cases}  {B=-1-2A;B=-1-2(-1);B=1}\\ {A=-1} \end{cases} $
+ Ora si sostituiscano i valori trovati alle relative incognite:
+ $ -\int \frac{1}{x+2}dx+\int \frac{1}{2x+1}dx=-\ln{|x+2|}+\frac{1}{2}\int \frac{2 \cdot 1}{2x+1}dx+c=-\ln{|x+2|}+\frac{1}{2}\ln{|2x+1|}+c=-\ln{|x+2|}+\ln{\sqrt{|2x+1|}}+c $ 
+ 
+ <b><u>Commento:</b></u>
+ L’integrale dato presenta un denominatore piuttosto complesso per svolgere da subito i calcoli di integrazione, è quindi utili cercare di scomporlo così da riscriverlo come prodotto di fattori più semplici.
+ Quindi si studiano tutti i divisori della costante presente al denominatore e si svolge la divisione usando il divisore che permette di ottenere resto zero. Il denominatore potrà quindi essere riscritto come prodotto tra divisore e quoziente. 
+ 
+ Successivamente si “spezzi” la frazione in due, quindi in due integrali, così da poter lavorare sfruttando le incognite ausiliarie $ A $ e $ B $. Si sommino le due frazioni con relative incognite così da ottenere le condizioni del sistema che verrà subito risolto.
+ Le condizioni ricavate prevedono che la somma dei coefficienti, $ 2A+B $, debba essere pari a $ -1 $ (come si può notare dal testo dato), mentre la somma delle costanti, $ A+2B $, dovrà essere uguale a $ 1 $ (come si può notare dal testo dato).
+ 
+A questo punto si sono ottenuti due semplici integrali, il primo è il caso noto che restituisce l’integrale in quanto si ha $ \int \frac{D’(x)}{D(x)}dx $. Il secondo è lo stesso caso, tuttavia è necessario moltiplicare il numeratore per $ 2 $ (perché la derivata del denominatore è $ 2 $), affinché non vengano alterati i calcoli si moltiplichi esternamente all’argomento dell’integrale per $ \frac{1}{2} $. In questo modo si starà moltiplicando per $ 1 $, elemento neutro della moltiplicazione. 
+ 
+Si noti che, per ottenere la stessa soluzione solitamente presentata nei libri di testo, la frazione $ \frac{1}{2} $ che moltiplica il secondo logaritmo, per le proprietà dei logaritmi, viene portata all’esponente, quindi la radice quadrata.

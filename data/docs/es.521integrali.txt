@@ -1,0 +1,17 @@
+$$ \int \frac{x^2-x+1}{x^2-2x+1}dx $$Soluzione:
+$ \int \frac{x^2-x+1-x+x}{(x-1)^2}dx=\int \frac{x^2-2x+1}{(x-1)^2}dx+\int \frac{x}{(x-1)^2}dx=\int \frac{(x-1)^2}{(x-1)^2}dx+\int \frac{x}{(x-1)^2}dx=\int 1dx+\int \frac{x}{(x-1)^2}=x+\int \frac{x}{(x-1^2)}dx+c=x+\int (\frac{A}{(x-1)}+\frac{B}{(x-1)^2})dx+c=x+\int \frac{Ax-A+B}{(x-1)^2}dx+c $.
+Si risolva il seguente sistema necessariamente così scritto:
+$\begin{cases}  {A=1} \\  {-A+B=0;B=A} \end{cases}$
+$\begin{cases}  {A=1} \\  {B=1} \end{cases}$
+Quindi si sostituiscano $ A $ e $ B $ negli integrali precedenti al passaggio contenente il minimo cumune multiplo dei denominatori e si risolva:
+$ x+\int \frac{1}{x-1}dx+\int \frac{1}{(x-1)^2}dx+c=x+\ln|x-1|-\frac{(x-1)^{-2+1}}{-2+1}+c=x+\ln|x-1|-\frac{1}{x-1}+c $.
+Commento:
+L'integrale dato presenta al denominatore la risoluazione del quadrato di binomio $ x^2-2x+1 $ che può essere resa in forma esplicita per comodità di scrittura, quindi $ (x-1)^2 $. Al numeratore è possibile aggiungere $ +x-x $ che di fatto significa aggiungere $ 0 $, in quanto
+ elemento neutro della somma e differenza non altera i calcoli, ciò permette però di avere al numeratore $ x^2-2x+1+x $. Esso può essere "spezzato" in due frazioni con stesso denominatore (il quadrato di binomio), quindi in due integrali, che semplificano i calcoli.
+ Il primo integrale è di semplice risoluzione in quanto l'argomento è una frazione con numeratore uguale al denominatore, sarà quindi $ \int 1dx= x+c $.
+Il secondo integrale è più complesso e non è facilmente riconducibile ad un caso noto che possa risolverlo. È allora possibile immaginarlo come la somma di due frazioni (il cui minimo comune multiplo dei denominatori sarà uguale a quello di partenza, cioé $ (x-1)^2 $; al
+ numeratore avranno invece due generiche quantità $ A $ e $ B $, la cui somma dovrà restituire $ x $ (il numeratore originale). Si noti che in questo calcolo il denominatore della prima frazione non presenta l'esponente indicante il quadrato a differenza di quello della seconda. Questa è una
+ scelta volontaria, fondamentale per la risolvere in quanto permette di scrivere due condizioni all'interno del sistema utile allo studio del numeratore. Si ha infatti come prima condizione che $ A=1 $ perché il coefficiente della $ x $ (nell'integrale originale, quello precedente
+ all'introduzione di $ A $ e $ B $); invece la seconda condizione sarà $ -A+B=0 $ perché l'argomento originale non presenta costanti, bensì solo il termine $ x $. Si risolve quindi il sistema e si sostituiscono i valori di $ A $ e $ B $ nelle due frazioni usate ($ \int \frac{A}{(x-1)}dx+\int \frac{B}{(x-1)^2}dx $).
+ Quindi si risolvono gli integrali delle due frazioni: il primo, $ \int \frac{1}{x-1}dx $, è il caso in cui la derivata del denominatore è uguale al numeratore, quindi è un integrale noto immediato  che restituisce il logaritmo naturale del valore assoluto del denominatore; il secondo integrale si risolve
+ con le regole base del calcolo integrale, quindi si aggiunge $ 1 $ all'esponente e si pone il denominatore uguale all'esponente dell'argomento ugualmente aumentato di $ 1 $.

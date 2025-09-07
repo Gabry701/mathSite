@@ -1,0 +1,9 @@
+$$ \int \frac{2^{3x-1}}{3^{x-2}}dx $$Soluzione:
+$ \int (\frac{1}{2}\cdot \frac{9}{1})\cdot\frac{2^{3x}}{3^x}dx= \frac{9}{2}\int \frac{2^{3x}}{3^x}dx=\frac{9}{2}\int (\frac{8}{3})^xdx=\frac{9}{2}\frac{(\frac{8}{3})^x}{\ln({\frac{8}{3}})}+c=\frac{9}{2}\frac{(\frac{8}{3})^x}{\ln(8)-\ln(3)}+c=\frac{9}{2(\ln(8)-\ln(3))}\cdot (\frac{8}{3})^x+c $.
+Commento:
+Per semplificare i calcoli è utile scindere i due esponenziali lavorando sulle differenze presenti agli esponenti. Possono essere visti rispettivamente così:
+$ 2^{3x-1}= 2^{3x}\cdot 2^{-1}= 2^{3x}\cdot \frac{1}{2} $.
+$ 3^{x-2}=3^x\cdot 3^{-2}=3^x\cdot \frac{3^2}{1}=3^x\cdot \frac{9}{1} $. Si noti come in questo caso il - all'esponente del secondo $ 3 $ impone di svolgere il reciproco, essendo il suddetto $ 3 $ al denominatore allora si vedrà il passaggio da denominatore a numeratore e non viceversa come si è soliti osservare.
+Quindi si moltiplicano tra loro le costanti e si porta tutto fuori argomento integrale. All'interno dell'integrale invece si risolve il $ 3 $ dell'esponente del numeratore così che alla fine entrambe le parti della frazione siano elevate a $ x $. Quindi si può applicare la formula risolutiva di questo
+ caso: $ \int [a]^x=\frac{a^x}{\ln(a)}+c $. Per ottenere la soluzione spesso presentata nei libri di testo, il denominatore ottenuto dall'integrazione viene posto al denominatore della frazione delle costanti (lo si può fare perché ci sono solo moltiplicazioni). Questo viene fatto per avere costanti
+ e incognite separate, ma è arbitrario. Inoltre il logaritmo della frazione $ \frac{8}{3} $ viene scisso nella forma estesa e quindi quella comprendente la differenza tra il logritmo del numeratore e denominatore.

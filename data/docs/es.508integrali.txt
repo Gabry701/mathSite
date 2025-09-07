@@ -1,0 +1,19 @@
+$$ \int \frac{3x-9}{x^2-x-2}dx $$Soluzione:
+Si consideri il denominatore della frazione come trinomio speciale: $ x^2-x-2=(x-2)(x+1) $. Quindi si scinda la frazione originale in
+ due frazioni con generici numeratori $ A $ e $ B $.
+$ \int (\frac{A}{(x-2)}+\frac{B}{(x-1)})dx=\int \frac{A(x+1)+B(x-2)}{(x-2)(x+1)}dx=\int \frac{Ax+A+Bx-2B}{(x-2)(x+1)}dx=\int \frac{(A+B)x+A-2B}{(x-2)(x+1)}dx $.
+$\begin{cases}  {A+B=3;A=3-B} \\  {A-2B=-9} \end{cases}$
+
+$\begin{cases}  {A=3-B;A=3-4;A=-1} \\  {3-B-2B=-9;-3B=-12;B=4} \end{cases}$
+
+Si sostituiscano le incognite ausiliarie:
+$ \int (\frac{-1}{x-2}+\frac{4}{x+1})dx=-\int \frac{1}{x-2}dx+\int\frac{4}{x+1}dx=-\ln{|x-2|}+4\ln{|x+1|}+c=-\ln{|x-2|}+\ln({|x+1|})^4+c=\ln{\frac{|x+1|^4}{|x-2|}}+c $
+Commento:
+L'integrale dato può essere risolto attraverso la sciossione della frazione mediante due incognite ausiliarie $ A $ e $ B $. Come è stato scritto
+ all'inzio della risoluzione, il denominatore può essere scritto sotto forma di trinomio speciale. Dopo aver scisso la frazione iniziale in due ed
+  aver posto i due numeratori $ A $ e $ B $ si deve trovare il valore da assegnare ad esse attraverso il sistema. La somma delle incognite prive di
+ parte letterale dovrà essere pari a $ -9 $ (come nel numeratore dato dal testo la costante è $ -9 $), la somma dei monomi dovrà essere uguale a
+ $ 3x $ (come scritto nel testo dato). Dopo aver trovato il valore delle incognite le si sostituiscano nel primo passaggio in cui sono state introdotte,
+ quindi si risolvano i due integrali. La risoluzione potrebbe fermarsi anche al terzultimo passaggio, è tuttavia possibile lavorare sfruttando la
+ proprietà dei logaritmi, quindi prima portare la costante $ 4 $ all'esponente e successivamente sfruttare il meno del primo logaritmo per ottenere
+ un unico logaritmo con un rapporto come argomento.

@@ -22,35 +22,42 @@
       <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div class="input-images-container">
+    <div class="input-images-container hidden">
         <button class="close-input-images-div">X</button>
-        <h2 class="input-images-title">CLICK ANYWHERE OR DRAG AND DROP YOUR IMAGES</h2>
-        <input class="input-images" type="file">
+        <div class="images-preview">
+        </div>
+        <div class="input-images-input-section">
+            <h2 class="input-images-title">CLICK ANYWHERE OR DRAG AND DROP YOUR IMAGES</h2>
+            <input class="input-images" type="file">
+        </div>
     </div>
     <div class="save-form-container hidden">
+        <button class="close-save-form">X</button>
         <form method="post" action="/newProblem" class="save-form"> 
                 <h2 class="save-form-title">SAVE THE SOLUTION</h2>
                 <!-- file name -->
                 <div class="name-container">
                     <label for="name-input">Exercise name:</label>
-                    <input type="text" name="solutionName" id="name-input" placeholder="es.###">      
+                    <input required type="text" name="solutionName" id="name-input" placeholder="es.###">      
                 </div>      
                 <!-- subject -->
                 <div class="subject-container">
                     <div class="subject-field">
                         <label for="math">Math </label>
-                        <input type="radio" id="math" value="math" name="subject">
+                        <input required type="radio" id="math" value="math" name="subject">
                     </div>
                     <div class="subject-field">
                         <label for="physics">Physics </label>
-                        <input type="radio" id="physics" value="physics" name="subject">
+                        <input required type="radio" id="physics" value="physics" name="subject">
                     </div>
                     <div class="subject-field">
                         <label for="chemistry">Chemistry </label>
-                        <input type="radio" id="chemistry" value="chemistry" name="subject">
+                        <input required type="radio" id="chemistry" value="chemistry" name="subject">
                     </div>
                 </div>
-                <div class="images-container"></div>
+                <div class="images-container">
+
+                </div>
                 <!-- submit -->
                  <div>
                      <button type="submit" class="submit-button">SAVE</button>

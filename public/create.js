@@ -22,8 +22,16 @@ const bold = document.querySelector(".bold")
 const italic = document.querySelector(".italic")
 const underline = document.querySelector(".underline")
 const addImageButton = document.querySelector(".image-adder")
+const openImagesInput = document.querySelector(".upload-images-button")
 const imagesInput = document.querySelector(".input-images")
-const imageInputContainer = document.querySelector(".input-images-container")
+const imagesInputContainer = document.querySelector(".input-images-container")
+const closeImagesInput = document.querySelector(".close-input-images-div")
+const imagesPreview = document.querySelector(".images-preview")
+const saveFormContainer = document.querySelector(".save-form-container")
+const saveForm = document.querySelector(".save-form")
+const imagesContainer = document.querySelector(".images-container")
+const closeSaveForm = document.querySelector(".close-save-form")
+const submitButton = document.querySelector(".submit-button")
 
 // arrays for the buttons
 // maxButton and minMaxButton are the Preview buttons in maximised and minimized view
@@ -41,9 +49,11 @@ const previewText = '<span style="display:block; width: 300px; margin: 0 auto; b
 let currentChar = inlineChar
 let isActive = false
 let activatedButtons = []
+let removeImageButtons = undefined;
 // set the cursor element to writable canvas when loading the page
 let cursorElement = writableCanvas;
 let cleanedValue = '';
+let savedImages = []
 // latex symbols
 const symbols = {
     "not-equals": "\\neq ",
@@ -276,7 +286,7 @@ function manageDisplayCanvasView() {
                 else if (align == "right") 
                     alignCode = "margin-left:auto; margin-right: 0"
                 
-                return `<span style="display:block; width: ${width || 640}px; height:${height || "auto"}px; background-image:url('./images/${name}'); border: 10px solid white; background-size: 100% 100%; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
+                return `<span style="display:block; width: ${width || 1280}px; height:${height || 512}px; background-image:url(temporaryImages/${name}); border: 10px solid white; background-size: ${height != ""? "100% 100%" : "contain"}; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
             })
             // add text to display-canvas
             displayCanvas.innerHTML = cleanedValue;
@@ -311,10 +321,45 @@ function saveAndUploadFiles() {
     })
 }
 
+function uploadImages(files) {
+    console.log("ciao")
+
+}
+
+async function displayAddedImages() {
+    const res = await fetch("/displayImages");
+    const imagesArray = await res.json();
+    imagesPreview.innerHTML = ""
+    imagesArray.forEach(path => {
+        const div = document.createElement("div")
+        const image = document.createElement("img");
+        const button = document.createElement("button")
+        image.setAttribute("src", path)
+        button.innerHTML = "X"
+        button.classList.add("remove-image-button")
+        button.setAttribute("data-image", path)
+        div.appendChild(image)
+        div.appendChild(button)
+        imagesPreview.appendChild(div)
+        button.addEventListener("click", async (e) => {
+        const imageName = e.currentTarget.getAttribute("data-image");
+            const res = await fetch("/removeImage", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ imageName })
+            });
+            if (res.status == 200)
+                // Remove the div containing the image & button
+                div.remove();
+    });
+    })
+    removeImageButtons = document.querySelectorAll(".remove-image-button")
+}
+
 
 // save text converted in html code to txt file
 function saveToTxtFile() {
-        let fileName = prompt("Inserire il nome del file: ") + ".txt"
+    let fileName = prompt("Inserire il nome del file: ") + ".txt"
     if (fileName != "null.txt") {
     const textFile = new Blob([cleanedValue.substring(previewText.length)], {type: 'text/plain'});
     const textFileUrl = URL.createObjectURL(textFile)
@@ -326,6 +371,24 @@ function saveToTxtFile() {
     a.click()
     document.body.removeChild(a)
     URL.revokeObjectURL(textFileUrl)
+    }
+}
+
+async function saveImagesToTemporaryStorage(files) {
+    savedImages = files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
+        // Only accept images
+        if (!file.type.startsWith("image/")) continue;
+         const formData = new FormData();
+      formData.append("file", file);
+
+    const res = await fetch("/upload", {
+        method: "POST",
+        body: formData,
+      })
+    displayAddedImages();
     }
 }
 
@@ -416,20 +479,83 @@ formatButtons.forEach(button => {
 // save the text (converted into html code by the )
 saveButtons.forEach(button => {
     button.addEventListener("click", () => {
-        saveAndUploadFiles()
+        saveFormContainer.classList.remove("hidden")
+        if (imagesPreview.innerHTML.trim() === "") {
+            imagesContainer.textContent = "Add images via the + Image section";
+        } else {
+            imagesContainer.innerHTML = imagesPreview.innerHTML;
+        }
     })
+})
+
+closeSaveForm.addEventListener("click", () => {
+    saveFormContainer.classList.add("hidden")
 })
 
 addImageButton.addEventListener("click", () => {
     addToTextArea("[()]")
 })
 
+imagesInput.addEventListener("drop", (e) => {
+    e.preventDefault()
+    const files = e.dataTransfer.files;
+    saveImagesToTemporaryStorage(files);
+})
+imagesInput.addEventListener("dragenter", () => {
+    imagesInputContainer.style.filter = "brightness(110%)"
+})
+imagesInput.addEventListener("dragleave", () => {
+    imagesInputContainer.style.filter = "brightness(100%)"
+})
+imagesInput.addEventListener("dragover", (e) => {
+    e.preventDefault();
+})
+closeImagesInput.addEventListener("click", () => {
+    imagesInputContainer.classList.add("hidden")
+})
+openImagesInput.addEventListener("click", () => {
+    displayAddedImages();
+    imagesInputContainer.classList.remove("hidden")
+})
 
+if (removeImageButtons != undefined) {
+    removeImageButtons.forEach(button => button.addEventListener("click", async (e) => {
+            const res = await fetch("/removeImage", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({imageName: e.currentTarget.getAttribute("data-image")})
+            })
+        })
+    )
+}
 
-imagesInput.addEventListener("hover", () => {
+saveForm.addEventListener("submit", async (e) => {
+    console.log("ciao")
+    e.preventDefault();
+    const formData = new FormData(saveForm);
+    const data = Object.fromEntries(formData.entries());
+    data["imagesPaths"] = []
+    
+    const res = await fetch("/newProblem", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+    
+    if (res.status == 200) {
+        alert("Problem Saved")
+        console.log(savedImages)
+    }
 })
 
 
-
 //load preview text in display canvas on load
-window.onload = manageDisplayCanvasView()
+window.addEventListener("load", () => {
+    writableCanvas.value = localStorage.getItem("exercise") || ""
+    manageDisplayCanvasView()
+})
+
+
+window.addEventListener("beforeunload", () => {
+    localStorage.setItem("exercise", writableCanvas.value)
+})

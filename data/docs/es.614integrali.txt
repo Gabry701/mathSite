@@ -1,0 +1,8 @@
+$$ \int ((1+\tan^2({2x}))\cdot 3^{\tan{(2x)}})dx $$Soluzione:
+Si imponga la variabile ausiliaria $ t=\tan{(2x)};(1+\tan^2{(2x)})\cdot 2dx=dt $. Si prosegua sostituendo in funzione della variabile $ t $.
+$ \frac{1}{2}\int 2((1+\tan^2{(2x)})\cdot 3^{\tan{(2x)}})dx=\frac{1}{2}\int 3^tdt=\frac{1}{2}\frac{3^t}{\ln3}+c=\frac{3^{\tan{(2x)}}}{2\ln3}+c $.
+Commento:
+Il seguente integrale può essere risolto attraverso il metodo "per sostituzione". È comodo usare questo metodo perché come si può notare derivazione di $ t $ è moltlo simile all'argomento dell'integrale fornito dal testo. Se in fatti si pone $ t=\tan{(2x)} $, la derivata di entrambi i membri
+ fa si che $ dt=2(1+\tan^2{(2x)}) $, è evidente che l'unico fattore assente nel testo è $ 2 $. Basterà quindi moltiplicare l'argomento dell'integrale per $ 2 $ ed esternamente ad esso moltiplicare per $ \frac{1}{2} $ così che di fatto si stia moltiplicando per $ 1 $, elemento neutro della moltiplicazione che non
+ altera il risultato. È comodo scegliere di compiere questa sostituzione anche per l'esponente del $ 3 $ interno all'argomento, esso (escluso il quadrato) è identico a quanto si sta sostituendo nella prima parentesi dell'integrale. Si sostituisca quindi $ 2(1+\tan^2{(2x)})dx $ con $ dt $, e si
+ sostituisca l'esponente del $ 3 $ conm $ t $. Quindi si compia l'integrazione della costante elevata alla variabile $ t $ (caso noto immediato) e dopo si sostituisca a $ t $ il lavoro associatogli all'inzio della risoluzione.

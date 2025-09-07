@@ -306,15 +306,25 @@ button {
     align-items: center;
 }
 
-
-.input-images {
+.input-images-input-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70%;
     height: 100%;
     width: 100%;
+}
+
+.input-images {
+    height: max(70%, 100%);
+    width: 100%;
     position: absolute;
+    bottom: 0;
+    left: 0;
     opacity: 0;
 }
 
-.close-input-images-div {
+.close-input-images-div, .remove-image-button, .close-save-form {
     height: 40px;
     width: 40px;
     font-size: 2rem;
@@ -328,10 +338,47 @@ button {
     border: 0;
 }
 
-.input-images-container > h2 {
+.remove-image-button {
+    right: 5px;
+    top: 5px;
+    border: 2px solid var(--lapis);
+}
+
+.images-preview, .images-container {
+    margin-top: 40px;
+    max-height: 30%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+}
+.images-preview > div {
+    position: relative;
+    max-width: 24%;
+}
+
+.images-container {
+    max-height: 20%;
+}
+
+.images-container > div {
+    max-width: 20%;
+}
+
+
+.images-preview img, .images-container img{
+    border-radius: 10px;
+    width: 100%;
+}
+
+
+.input-images-container  h2 {
     color: var(--lapis);
     font-weight: 900;
 }
+
+
 
 .save-form-container, .input-images-container {
     position: absolute;
@@ -349,8 +396,12 @@ button {
     align-items: center;
     justify-content: center;
 }
-
+.input-images-container {
+    flex-direction: column;
+    justify-content: space-between;
+}
 .save-form {
+    color: var(--lapis);
     border-radius: inherit;
     width: 90%;
     height: 90%;
@@ -358,6 +409,8 @@ button {
     background-color: pink;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 20px;
     font-weight:700;
     padding: 20px;
 }
@@ -367,6 +420,7 @@ button {
 }
 
 .save-form-title {
+    margin-bottom: 50px;
     font-size: 2rem;
     font-weight: 900;
 }
@@ -394,9 +448,10 @@ label {
 #name-input {
     background-color: var(--light-cyan);
     border-radius: inherit;
-    height: 2rem;
+    height: 3rem;
     padding: 0px 10px;
     border: 2px solid var(--light-azure);
+    font-size: 1.5rem;
 }
 
 input[name="subject"] {
@@ -408,7 +463,7 @@ input[name="subject"] {
 
 .name-container > label {
     width: fit-content;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 
@@ -418,6 +473,8 @@ input[name="subject"] {
 
 
 .images-container {
+    background-color: var(--hide-button-active);
+    font-size: 1.5rem;
     display: flex;
     gap: 3%;
     justify-content: center;

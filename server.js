@@ -4,6 +4,8 @@ import { fileURLToPath } from "url";
 import fs from "fs/promises";
 import dotenv from "dotenv"
 import pool from "./db.js"
+import multer from "multer"
+import { createBrotliCompress } from "zlib";
 
 // Change current problem default value in the future
 let currentProblem = "es.22 integrali";
@@ -12,10 +14,23 @@ const port = 3000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/temporaryImages", express.static(path.join(__dirname, "data/temporaryImages")))
 app.use(express.json()); // per leggere JSON nel body
 app.use(express.urlencoded({ extended: true }));
 
 dotenv.config()
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "./data/temporaryImages")
+    },
+    filename: (req, file , cb) => {
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({ storage: storage });
+
+
 
 //get the id of the button clicked in the index.html page, that id is the same as the name of the file
 app.post("/problem", async (req,res) => {
@@ -46,6 +61,32 @@ app.get("/buttons", async (req,res) => {
     res.send(htmlButtons.join("\n"))
 })
  
+app.post("/upload", upload.single("file"), (req, res) => {
+  console.log(req.file); // info about uploaded file
+  res.sendStatus(200);
+});
+
+app.get("/displayImages", async (req,res) => {
+    const images = await fs.readdir(path.join(__dirname, "data", "temporaryImages"))
+    const imagesPaths = images.map(image => path.join("/temporaryImages", image))
+    res.send(imagesPaths)
+})
+
+app.post("/removeImage", (req,res) => {
+    console.log("hello")
+    fs.unlink(path.join(__dirname, "data", req.body["imageName"]))
+    res.sendStatus(200)
+})
+
+app.post("/newProblem", (req,res) => {
+    console.log(req.body)
+    if (Object.keys(req.body).length > 0)
+        res.sendStatus(200)
+    else 
+        res.sendStatus(500)
+})
+
+
 app.listen(port, () => {
     console.log("server running on port " + port);
 })

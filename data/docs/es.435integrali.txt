@@ -1,0 +1,8 @@
+$$ \int (x\cdot e^{-x})dx $$Soluzione:
+$ x(-e^{-x})-\int (1\cdot (-e^{-x}))dx=x(-e^{-x})+(-e^{-x})+c=(-e^{-x})(x+1)+c $.
+Commento:
+L'integralo dato può essere risolto attraveso il metodo "per parti". È comodo applicare questo metodo perché l'integrazione e la derivazione del numero di eulero ($ e $)
+ sono calcoli semplici e ripetitivi. Si riporta la formula risolutiva generica del metodo applicato in questo caso: $ \int (g(x)\cdot f'(x))dx=g(x)\cdot f(x)-\int (g'(x)\cdot f(x))dx $.
+ È sensato scegliere $ g(x)=x $, così che nella derivazione presente in formula diventi $ 1 $, quindi elemento neutro; invece, $ f'(x)=e^{-x} $. Si applica quindi la formula e
+ successivamente si compie un arbitrario raccoglimento a fattore comune ($ (-e^{-x}) $). Quest'ultimo non è fondamentale, viene fatto solo per condurre alla soluzione
+ maggiormente diffusa nei libri di testo per questo integrale.

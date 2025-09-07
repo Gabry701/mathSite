@@ -1,0 +1,7 @@
+$$ \int \frac{x+2}{\cos^2{(x^2+4x)}}dx $$Soluzione:
+Si imponga la variaibile ausialiari $ t=x^2+4x;dt=(2x+4)dx $. Quindi si sostituisca:
+$ \frac{1}{2}\int \frac{2x+4}{\cos^2{(x^2+4x)}}dx=\frac{1}{2}\int \frac{dt}{\cos^2t}=\frac{1}{2}\tan{(t)}+c=\frac{1}{2}\tan{(x^2+4x)}+c $.
+Commento:
+L'integrale dato può essere risolto con il metodo "per sostituzione" che risulta esser comodo per giungere al caso noto di integrazione che restituisce la tangente. Affinché si possa sotituire il numeratore moltiplicato per $ dx $ con $ dt $, è necessario moltiplicare tutto per $ 2 $, così da
+ compiere il completamento. Poiché si è moltiplicato all'interno dell'argomento per $ 2 $, fuori si dovrà moltiplicare per $ \frac{1}{2} $ così che di fatto si stia moltiplicando per $ 1 $ il che è ottimo perché in quanto elemento neutro della moltiplicazione, non altera il risultato. Quindi si sostituisca con $ t $
+ e $ dt $ e si giunge al caso di integrazione che restituisce la tangente. Si integra e successivamente si sostituice a $ t $ il valore associatogli originariamente così da completare la risoluzione. 

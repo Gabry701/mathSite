@@ -73,15 +73,24 @@ app.get("/displayImages", async (req,res) => {
 })
 
 app.post("/removeImage", (req,res) => {
-    console.log("hello")
     fs.unlink(path.join(__dirname, "data", req.body["imageName"]))
     res.sendStatus(200)
 })
 
-app.post("/newProblem", (req,res) => {
+app.post("/newProblem", async (req,res) => {
     console.log(req.body)
-    if (Object.keys(req.body).length > 0)
+    if (Object.keys(req.body).length > 0) {
+        const sourceDir = path.join(__dirname, "data", "temporaryImages");
+        const destDir = path.join(__dirname, "public", "images");
+        const images = await fs.readdir(sourceDir)
+        images.forEach(image => {
+            const srcPath = path.join(sourceDir, image);
+            const destPath = path.join(destDir, image);
+            fs.rename(srcPath, destPath)
+        });
         res.sendStatus(200)
+        pool.query(`INSERT INTO solutions (exercise, solution, subject) VALUES ($1, $2, $3)`, [req.body.solutionName, req.body.solutionText, req.body.subject])
+    }
     else 
         res.sendStatus(500)
 })

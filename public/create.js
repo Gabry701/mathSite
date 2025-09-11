@@ -50,6 +50,7 @@ let currentChar = inlineChar
 let isActive = false
 let activatedButtons = []
 let removeImageButtons = undefined;
+let isSaved = false;
 // set the cursor element to writable canvas when loading the page
 let cursorElement = writableCanvas;
 let cleanedValue = '';
@@ -286,7 +287,7 @@ function manageDisplayCanvasView() {
                 else if (align == "right") 
                     alignCode = "margin-left:auto; margin-right: 0"
                 
-                return `<span style="display:block; width: ${width || 1280}px; height:${height || 512}px; background-image:url(temporaryImages/${name}); border: 10px solid white; background-size: ${height != ""? "100% 100%" : "contain"}; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
+                return `<span style="display:block; width: ${width || 1280}px; height:${height || 512}px; background-image:url(temporaryImages/${name}?${new Date().getTime()}); border: 10px solid white; background-size: ${height != ""? "100% 100%" : "contain"}; background-repeat: no-repeat; background-position: center; border-radius: 10px; border: 1px solid transparent; ${alignCode}"></span>`;
             })
             // add text to display-canvas
             displayCanvas.innerHTML = cleanedValue;
@@ -334,7 +335,7 @@ async function displayAddedImages() {
         const div = document.createElement("div")
         const image = document.createElement("img");
         const button = document.createElement("button")
-        image.setAttribute("src", path)
+        image.setAttribute("src", path + '?' + new Date().getTime())
         button.innerHTML = "X"
         button.classList.add("remove-image-button")
         button.setAttribute("data-image", path)
@@ -375,7 +376,7 @@ function saveToTxtFile() {
 }
 
 async function saveImagesToTemporaryStorage(files) {
-    savedImages = files;
+    savedImages = Array.from(files);
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
 
@@ -388,6 +389,7 @@ async function saveImagesToTemporaryStorage(files) {
         method: "POST",
         body: formData,
       })
+    imagesInput.value = "";
     displayAddedImages();
     }
 }
@@ -496,6 +498,11 @@ addImageButton.addEventListener("click", () => {
     addToTextArea("[()]")
 })
 
+imagesInput.addEventListener("change", (e) => {
+    const files = e.target.files;
+    saveImagesToTemporaryStorage(files)
+})
+
 imagesInput.addEventListener("drop", (e) => {
     e.preventDefault()
     const files = e.dataTransfer.files;
@@ -534,8 +541,7 @@ saveForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(saveForm);
     const data = Object.fromEntries(formData.entries());
-    data["imagesPaths"] = []
-    
+    data["solutionText"] = cleanedValue.substring(previewText.length);
     const res = await fetch("/newProblem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -544,7 +550,9 @@ saveForm.addEventListener("submit", async (e) => {
     
     if (res.status == 200) {
         alert("Problem Saved")
-        console.log(savedImages)
+        localStorage.clear();
+        isSaved = true;
+        window.location.reload();
     }
 })
 
@@ -557,5 +565,8 @@ window.addEventListener("load", () => {
 
 
 window.addEventListener("beforeunload", () => {
-    localStorage.setItem("exercise", writableCanvas.value)
+    if (!isSaved) {
+        localStorage.setItem("exercise", writableCanvas.value)
+        isSaved = false;
+    }
 })

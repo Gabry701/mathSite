@@ -89,7 +89,7 @@ app.post("/newProblem", async (req,res) => {
             fs.rename(srcPath, destPath)
         });
         res.sendStatus(200)
-        pool.query(`INSERT INTO solutions (exercise, solution, subject) VALUES ($1, $2, $3)`, [req.body.solutionName, req.body.solutionText, req.body.subject])
+        pool.query(`INSERT INTO solutions (exercise, html, subject) VALUES ($1, $2, $3)`, [req.body.solutionName, req.body.solutionHTML, req.body.subject])
     }
     else 
         res.sendStatus(500)

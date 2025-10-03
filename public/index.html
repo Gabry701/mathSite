@@ -15,6 +15,7 @@
         };
     </script>
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathlive"></script>
     <title>Math</title>
 </head>
 <body>
@@ -26,15 +27,28 @@
     
         <div class="search-bar">
             <!-- search bar input -->
-            <label for="search-bar-field"></label>
-            <input id="search-bar-field" type="text" placeholder="search any problem">
+            <math-field id="search-problem-field"></math-field>
             <!-- confirm search button -->
             <button class="search-bar-icon"> <span class="material-symbols-outlined">search</span> </button>
         </div>
         <!-- more options button, to define -->
-        <button class="more"> <span class="material-symbols-outlined menu-icon">menu</span></button>
+        <div>
+            <div class="dropdown-container">
+                <button class="dropdown-button">MATH</button>
+                <div class="dropdown-content">
+                    <a href="/Physics" class="dropdown-content-button">PHISICS</a>
+                    <a href="/Chemistry" class="dropdown-content-button">MATH</a>
+                </div>
+            </div>
+            <button>INTEGRALS</button>
+        </div>
     </nav>
     <main>
+        <div class="subject-button" id="math-subject"></div>
+        <div class="subject-button" id="physics-subject"></div>
+        <div class="subject-button" id="chemistry-subject"></div>
+
+
         <!-- here will go the buttons with the problem solutions sent by the server -->
     </main>
 </body>

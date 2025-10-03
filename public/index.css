@@ -1,8 +1,14 @@
 :root {
     --nav-height: 100px;
-    --nav-object-height: calc(var(--nav-height)/2);
-    --nav-color: cadetblue;
-    --nav-focus-color: rgb(152, 230, 233);
+    --nav-object-size: 48px;
+    --nav-color: #b3c7d3;
+    --body-color: #cfdbe3;
+    --section-divider-color: #9ec5ea;
+    --text-color: #3f3f3f;
+    --accent-color: #efbed8;
+    --element-color: #dfe7ec;
+    --light-color: #becfda;
+    --border-color: #33658A;
 }
 
 * {
@@ -10,6 +16,10 @@
     padding: 0;
     box-sizing: border-box;
     border: 0;
+}
+
+body {
+    background-color: var(--body-color);
 }
 
 /* google's material symbols implementation */
@@ -34,6 +44,7 @@
     gap: 1px;
     padding: 0 2%;
     align-items: center;
+    margin-bottom: 20px;
 }
 .title {
     justify-self: start;
@@ -42,13 +53,13 @@
     gap: 5px;
 }
 .logo {
-    height: var(--nav-object-height);
-    width: var(--nav-object-height);
-    background-color: white;
+    height: var(--nav-object-size);
+    width: var(--nav-object-size);
+    background-color: var(--element-color);
     border-radius: 100%;
 }
 .name {
-    height: var(--nav-object-height);
+    height: var(--nav-object-size);
     font-size: 2rem;
     display: flex;
     align-items: center;
@@ -57,38 +68,38 @@
 .search-bar {
     justify-self: center;
     width: 70%;
-    height: var(--nav-object-height);
-    background-color: white;
+    height: var(--nav-object-size);
+    background-color: var(--element-color);
     border-radius: 10px;
     overflow: hidden;
     display: flex;
 }
-.search-bar > input {
+#search-problem-field {
     height: inherit;
-    width: calc(100% - var(--nav-object-height));
+    width: calc(100% - var(--nav-object-size));
     padding: 0 2%;
     font-size: 1.2rem;
     outline-color: var(--nav-focus-color);
 }
 .search-bar > button {
     height: inherit;
-    width: var(--nav-object-height);
-    background-color: var(--nav-focus-color);
+    width: var(--nav-object-size);
+    background-color: var(--accent-color);
     :hover {
         cursor: pointer;
     }
 }
 .more {
     justify-self: end;
-    width: var(--nav-object-height);
-    height: var(--nav-object-height);
+    width: var(--nav-object-size);
+    height: var(--nav-object-size);
     background-color: transparent;
     cursor: pointer;
 }
 /* more button */
 .menu-icon {
-    font-size: var(--nav-object-height) !important;
-    font-variation-settings: 'OPSZ' var(--nav-object-height);
+    font-size: var(--nav-object-size) !important;
+    font-variation-settings: 'OPSZ' var(--nav-object-size);
 }
 /* MAIN */
 
@@ -98,6 +109,16 @@ main {
     justify-content: center;
     gap: 10px;
 }
+
+.subject-button {
+    height: 200px;
+    width: 300px;
+    background-color: red;
+}
+
+
+
+
 
 /* style of the buttons added by the server, following the request of index.js */
 .problem-button {

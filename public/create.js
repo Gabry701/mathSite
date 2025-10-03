@@ -541,7 +541,7 @@ saveForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(saveForm);
     const data = Object.fromEntries(formData.entries());
-    data["solutionText"] = cleanedValue.substring(previewText.length);
+    data["solutionHTML"] = cleanedValue.substring(previewText.length);
     const res = await fetch("/newProblem", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
